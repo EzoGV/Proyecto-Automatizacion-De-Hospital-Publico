@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   # Definimos el servicio de la base de datos
