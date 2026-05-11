@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  #aqui se define el servicio de la base de datos
+  oracle-db:
+    #se utiliza la imagen oficial de Oracle para desarrolladores
+    image: container-registry.oracle.com/database/free:latest
+    container_name: oracle_hospital_db
+    ports:
+      - 
