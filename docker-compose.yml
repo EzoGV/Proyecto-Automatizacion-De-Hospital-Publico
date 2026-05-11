@@ -1,17 +1,13 @@
-
 services:
-  # Definimos el servicio de la base de datos
   oracle-db:
-    # Usamos la imagen oficial de Oracle para desarrolladores
     image: container-registry.oracle.com/database/free:latest
     container_name: oracle_hospital_db
     ports:
-      - "1521:1521"  # Mapea el puerto de Oracle al de tu PC
+      - "1521:1521"
     environment:
-      # Esta será la contraseña maestra CAMBIAR!!!!
-      - ORACLE_PASSWORD=Admin12345
+      # Usamos tu contraseña deseada aquí
+      - ORACLE_PASSWORD=Pax.,ytrG231
     volumes:
-      # Esto hace que los datos no se borren al apagar el contenedor
       - oracle_data:/opt/oracle/oradata
 
 volumes:
