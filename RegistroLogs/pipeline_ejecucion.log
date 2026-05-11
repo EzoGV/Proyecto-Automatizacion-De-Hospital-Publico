@@ -1,0 +1,22 @@
+2026-05-11 14:23:57 - INFO - === INICIO DE ETAPA 1: INGESTA DE DATOS ===
+2026-05-11 14:23:57 - WARNING - Archivo no encontrado en origen: datos_hospital_san_jose.csv
+2026-05-11 14:23:57 - WARNING - Archivo no encontrado en origen: datos_hospital_regional_sur.xlsx
+2026-05-11 14:23:57 - INFO - === FIN DE INGESTA: 0 registros totales capturados ===
+2026-05-11 14:26:35 - INFO - === INICIO DE ETAPA 1: INGESTA DE DATOS ===
+2026-05-11 14:26:35 - INFO - Carpeta creada: /data/raw
+2026-05-11 14:26:35 - INFO - Captura exitosa: datos_hospital_san_jose.csv | Registros: 106 | Destino: /data/raw
+2026-05-11 14:26:35 - INFO - Captura exitosa: datos_hospital_regional_sur.xlsx | Registros: 105 | Destino: /data/raw
+2026-05-11 14:26:35 - INFO - === FIN DE INGESTA: 211 registros totales capturados ===
+2026-05-11 14:31:06 - INFO - === INICIO DE ETAPA 1: INGESTA DE DATOS ===
+2026-05-11 14:31:06 - WARNING - Archivo no encontrado en origen: datos_hospital_san_jose.csv
+2026-05-11 14:31:06 - WARNING - Archivo no encontrado en origen: datos_hospital_regional_sur.xlsx
+2026-05-11 14:31:06 - INFO - === FIN DE INGESTA: 0 registros totales capturados ===
+2026-05-11 14:31:19 - INFO - === INICIO DE ETAPA 1: INGESTA DE DATOS ===
+2026-05-11 14:31:19 - INFO - Captura exitosa: datos_hospital_san_jose.csv | Registros: 106 | Destino: ./data/raw
+2026-05-11 14:31:19 - INFO - Captura exitosa: datos_hospital_regional_sur.xlsx | Registros: 105 | Destino: ./data/raw
+2026-05-11 14:31:19 - INFO - === FIN DE INGESTA: 211 registros totales capturados ===
+2026-05-11 14:33:26 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-11 14:33:26 - INFO - Lectura exitosa. Registros consolidados: 211
+2026-05-11 14:33:26 - INFO - Limpieza: 1 filas duplicadas eliminadas.
+2026-05-11 14:33:26 - INFO - Exportación exitosa a: ./data/processed\dataset_hospitales_limpio.csv con 210 registros finales.
+2026-05-11 14:33:26 - INFO - === FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
