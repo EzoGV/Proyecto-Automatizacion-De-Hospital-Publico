@@ -5,9 +5,6 @@ services:
     ports:
       - "1521:1521"
     environment:
-      # Usamos una contraseña más simple para probar (puedes cambiarla luego)
       - ORACLE_PASSWORD=Admin12345
-      - APP_USER=ADMIN
-      - APP_USER_PASSWORD=Pax.,ytrG231
-    # Esto ayuda a que no falle por falta de memoria
+    # Esto asegura que Oracle tenga espacio para arrancar
     shm_size: '1gb'
