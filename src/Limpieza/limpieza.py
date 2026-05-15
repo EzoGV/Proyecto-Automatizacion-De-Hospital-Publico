@@ -18,7 +18,6 @@ def limpiar_rut(rut):
     """
     Normaliza el RUT: quita puntos, espacios y guiones, y luego 
     le vuelve a poner el guion antes del dígito verificador.
-    Ejemplo: '12.345.6789' -> '12345678-9'
     """
     if pd.isna(rut):
         return rut
@@ -46,7 +45,6 @@ def iniciar_limpieza():
     
     try:
         # 1. LECTURA Y CONSOLIDACIÓN
-        # Juntamos los datos de ambos hospitales en un solo DataFrame gigante
         df_csv = pd.read_csv(archivo_csv)
         df_excel = pd.read_excel(archivo_excel)
         
@@ -61,37 +59,46 @@ def iniciar_limpieza():
         logging.info(f"Limpieza: {duplicados_eliminados} filas duplicadas eliminadas.")
         
         # 3. TRATAMIENTO DE NULOS Y NORMALIZACIÓN DE NOMBRES
-        # Si el nombre viene nulo, le ponemos DESCONOCIDO
         df_consolidado['nombre_completo'] = df_consolidado['nombre_completo'].fillna('DESCONOCIDO')
-        # Limpiamos espacios extra y aplicamos formato Título (Ej: "juan perez" -> "Juan Perez")
         df_consolidado['nombre_completo'] = df_consolidado['nombre_completo'].str.strip().str.title()
         
         # 4. NORMALIZACIÓN DE RUT
         df_consolidado['rut_paciente'] = df_consolidado['rut_paciente'].apply(limpiar_rut)
         
         # 5. ESTANDARIZACIÓN DE FECHAS
-        # Convertimos forzosamente a formato YYYY-MM-DD para evitar problemas en SQL
         df_consolidado['fecha_nacimiento'] = pd.to_datetime(df_consolidado['fecha_nacimiento'], errors='coerce').dt.strftime('%Y-%m-%d')
         df_consolidado['fecha_atencion'] = pd.to_datetime(df_consolidado['fecha_atencion'], errors='coerce').dt.strftime('%Y-%m-%d %H:%M:%S')
         
-        # 6. TRATAMIENTO DE NULOS EN ALERGIAS Y EXÁMENES
+        # 6. TRATAMIENTO DE NULOS EN ALERGIAS
         df_consolidado['alergia_principio'] = df_consolidado['alergia_principio'].fillna('Ninguna')
         
-        # 7. ESTANDARIZAR VARIABLES CATEGÓRICAS (Mayúsculas sin espacios)
+        # 7. ESTANDARIZAR VARIABLES CATEGÓRICAS
         df_consolidado['prevision'] = df_consolidado['prevision'].str.strip().str.upper()
         df_consolidado['tipo_atencion'] = df_consolidado['tipo_atencion'].str.strip().str.upper()
 
-        # 8. EXPORTAR RESULTADO LIMPIO
-        archivo_salida = os.path.join(ruta_processed, 'dataset_hospitales_limpio.csv')
-        df_consolidado.to_csv(archivo_salida, index=False)
+        # ==========================================
+        # 8. EXPORTAR RESULTADO LIMPIO (CSV Y EXCEL)
+        # ==========================================
+        archivo_salida_csv = os.path.join(ruta_processed, 'dataset_hospitales_limpio.csv')
+        archivo_salida_excel = os.path.join(ruta_processed, 'dataset_hospitales_limpio.xlsx')
         
-        logging.info(f"Exportación exitosa a: {archivo_salida} con {total_sin_duplicados} registros finales.")
+        # Generar CSV (ideal para máquinas/base de datos)
+        df_consolidado.to_csv(archivo_salida_csv, index=False)
+        
+        # Generar Excel (ideal para humanos/trazabilidad)
+        df_consolidado.to_excel(archivo_salida_excel, index=False, sheet_name='Datos_Limpios')
+        
+        logging.info(f"Exportación exitosa a CSV y Excel con {total_sin_duplicados} registros finales.")
         logging.info("=== FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===")
-        print(f"Etapa 2 Completada: Limpieza aplicada. Dataset unificado guardado en {ruta_processed}")
+        
+        print(f"Etapa 2 Completada: Limpieza aplicada.")
+        print(f"Archivos generados en la carpeta '{ruta_processed}':")
+        print(f"    {archivo_salida_csv}")
+        print(f"    {archivo_salida_excel}")
         
     except Exception as e:
         logging.error(f"Error crítico en la limpieza: {e}")
-        print(f" Ocurrió un error. Revisa el archivo de logs.")
+        print(f"Ocurrió un error. Revisa el archivo de logs.")
 
 if __name__ == "__main__":
     iniciar_limpieza()

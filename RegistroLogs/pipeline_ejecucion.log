@@ -20,3 +20,8 @@
 2026-05-11 14:33:26 - INFO - Limpieza: 1 filas duplicadas eliminadas.
 2026-05-11 14:33:26 - INFO - Exportación exitosa a: ./data/processed\dataset_hospitales_limpio.csv con 210 registros finales.
 2026-05-11 14:33:26 - INFO - === FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-15 13:54:50 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-15 13:54:50 - INFO - Lectura exitosa. Registros consolidados: 211
+2026-05-15 13:54:50 - INFO - Limpieza: 1 filas duplicadas eliminadas.
+2026-05-15 13:54:50 - INFO - Exportación exitosa a CSV y Excel con 210 registros finales.
+2026-05-15 13:54:50 - INFO - === FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
