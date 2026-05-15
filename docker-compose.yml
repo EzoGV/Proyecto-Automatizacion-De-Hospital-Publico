@@ -1,15 +1,13 @@
 services:
   oracle-db:
-    # Cambiamos la imagen por esta que es libre y automática
     image: gvenzl/oracle-free:latest
     container_name: oracle_hospital_db
     ports:
       - "1521:1521"
     environment:
-      # Tu contraseña compleja
-      - ORACLE_PASSWORD=Pax.,ytrG231
-    volumes:
-      - oracle_data:/opt/oracle/oradata
-
-volumes:
-  oracle_data:
+      # Usamos una contraseña más simple para probar (puedes cambiarla luego)
+      - ORACLE_PASSWORD=Admin12345
+      - APP_USER=ADMIN
+      - APP_USER_PASSWORD=Pax.,ytrG231
+    # Esto ayuda a que no falle por falta de memoria
+    shm_size: '1gb'
