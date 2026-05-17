@@ -129,6 +129,22 @@ def validar_dosis(dosis):
     patron = r'^\d+(\.\d+)?(mg|ml|g|mcg|UI)$'
     return bool(re.match(patron, str(dosis).strip(), re.IGNORECASE))
 
+def validar_codigo_cie10(codigo, catalogo_cie10):
+    """Verifica que el código CIE-10 exista en el catálogo oficial."""
+    return str(codigo).strip() in catalogo_cie10
+
+def validar_fecha_no_futura(fecha_str, formato):
+    """Verifica que la fecha no sea posterior a hoy."""
+    try:
+        fecha = datetime.strptime(str(fecha_str), formato)
+        return fecha <= datetime.now()
+    except (ValueError, TypeError):
+        return False
+
+def validar_codigo_minsal(codigo):
+    """Verifica que el código MINSAL tenga formato M + 3 dígitos. Ej: M002."""
+    patron = r'^M\d{3}$'
+    return bool(re.match(patron, str(codigo).strip()))
 
 # ── MOTOR PRINCIPAL ───────────────────────────────────────────────────────────
 
@@ -149,6 +165,11 @@ def iniciar_validacion():
         df = pd.read_csv(ruta_dataset)
         total = len(df)
         logging.info(f"Dataset cargado: {total} registros a validar.")
+
+        # Cargar catálogo CIE-10
+        df_cie10 = pd.read_csv("./data/CIE-10/codigos_cie10.csv")
+        catalogo_cie10 = set(df_cie10['codigo'].str.strip())
+        logging.info(f"Catálogo CIE-10 cargado: {len(catalogo_cie10)} códigos.")
 
         connection = get_connection()
         crear_tabla_cuarentena(connection)
@@ -216,14 +237,29 @@ def iniciar_validacion():
                 insertar_cuarentena(cursor, id_reg, 'dosis_prescrita', fila['dosis_prescrita'], 'DOSIS_FORMATO_INVALIDO')
                 errores += 1
 
-            # 12. Unicidad id_atencion
+            # 12. Código CIE-10
+            if not validar_codigo_cie10(fila['codigo_cie10'], catalogo_cie10):
+                insertar_cuarentena(cursor, id_reg, 'codigo_cie10', fila['codigo_cie10'], 'CODIGO_CIE10_NO_EXISTE')
+                errores += 1
+
+            # 13. Fecha atención no futura
+            if not validar_fecha_no_futura(fila['fecha_atencion'], '%Y-%m-%d %H:%M:%S'):
+                insertar_cuarentena(cursor, id_reg, 'fecha_atencion', fila['fecha_atencion'], 'FECHA_ATENCION_FUTURA')
+                errores += 1
+
+            # 14. Código MINSAL
+            if not validar_codigo_minsal(fila['codigo_minsal']):
+                insertar_cuarentena(cursor, id_reg, 'codigo_minsal', fila['codigo_minsal'], 'CODIGO_MINSAL_FORMATO_INVALIDO')
+                errores += 1
+
+            # 15. Unicidad id_atencion
             if id_reg in ids_atencion_vistos:
                 insertar_cuarentena(cursor, id_reg, 'id_atencion', id_reg, 'ID_ATENCION_DUPLICADO')
                 errores += 1
             else:
                 ids_atencion_vistos.add(id_reg)
 
-            # 13. Unicidad id_examen
+            # 16. Unicidad id_examen
             if fila['id_examen'] in ids_examen_vistos:
                 insertar_cuarentena(cursor, id_reg, 'id_examen', fila['id_examen'], 'ID_EXAMEN_DUPLICADO')
                 errores += 1
