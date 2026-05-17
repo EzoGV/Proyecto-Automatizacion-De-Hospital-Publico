@@ -1,0 +1,248 @@
+# src/Validacion/validacion.py
+import pandas as pd
+import logging
+import os
+import re
+from datetime import datetime
+
+# ── LOGGING ──────────────────────────────────────────────────────────────────
+ruta_logs = "./RegistroLogs"
+os.makedirs(ruta_logs, exist_ok=True)
+archivo_log = os.path.join(ruta_logs, 'pipeline_ejecucion.log')
+
+logging.basicConfig(
+    filename=archivo_log,
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+# ── CONEXIÓN ORACLE (placeholder) ────────────────────────────────────────────
+def get_connection():
+    """
+    TODO: tu compañero reemplaza este bloque con la conexión real.
+    Debe retornar un objeto connection compatible con cx_Oracle u oracledb.
+    """
+    raise NotImplementedError("Conexión Oracle pendiente de implementar.")
+
+
+# ── LISTAS BLANCAS ────────────────────────────────────────────────────────────
+SEXOS_VALIDOS       = {'M', 'F'}
+PREVISIONES_VALIDAS = {'FONASA', 'ISAPRE', 'NINGUNA', 'DIPRECA', 'CAPREDENA'}
+TIPOS_ATENCION      = {'CONSULTA', 'HOSPITALIZACION', 'PROCEDIMIENTO', 'URGENCIA'}
+
+# ── CREAR TABLA CUARENTENA ────────────────────────────────────────────────────
+def crear_tabla_cuarentena(connection):
+    """
+    Crea la tabla CUARENTENA en Oracle si no existe.
+    Se ejecuta una sola vez al inicio del proceso de validación.
+    """
+    sql = """
+        CREATE TABLE CUARENTENA (
+            id_registro          VARCHAR2(36),
+            campo_fallido        VARCHAR2(50),
+            valor_encontrado     VARCHAR2(200),
+            motivo               VARCHAR2(100),
+            timestamp_validacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """
+    try:
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        connection.commit()
+        logging.info("Tabla CUARENTENA creada exitosamente.")
+    except Exception as e:
+        # En Oracle, si la tabla ya existe lanza ORA-00955
+        # Lo ignoramos para que el pipeline no se rompa en la segunda ejecución
+        if "ORA-00955" in str(e):
+            logging.info("Tabla CUARENTENA ya existe, continuando.")
+        else:
+            logging.error(f"Error creando tabla CUARENTENA: {e}")
+            raise
+
+# ── FUNCIONES DE VALIDACIÓN ───────────────────────────────────────────────────
+
+def validar_formato_rut(rut):
+    """Verifica que el RUT tenga el formato XXXXXXXX-X (normalizado por limpieza)."""
+    patron = r'^\d{7,8}-[\dkK]$'
+    return bool(re.match(patron, str(rut).strip()))
+
+def validar_fecha(fecha_str, formato):
+    """Verifica que una fecha string sea parseable en el formato indicado."""
+    try:
+        datetime.strptime(str(fecha_str), formato)
+        return True
+    except (ValueError, TypeError):
+        return False
+
+def validar_rut_chileno(rut):
+    """
+    Valida el dígito verificador del RUT chileno usando módulo 11.
+    Asume que el RUT ya tiene formato XXXXXXXX-X.
+    """
+    try:
+        cuerpo, dv = str(rut).strip().split('-')
+        cuerpo = cuerpo.replace('.', '')
+        suma, factor = 0, 2
+        for digito in reversed(cuerpo):
+            suma += int(digito) * factor
+            factor = 2 if factor == 7 else factor + 1
+        resto = 11 - (suma % 11)
+        if resto == 11:
+            dv_calculado = '0'
+        elif resto == 10:
+            dv_calculado = 'K'
+        else:
+            dv_calculado = str(resto)
+        return dv.upper() == dv_calculado
+    except Exception:
+        return False
+
+def validar_edad(fecha_nacimiento, fecha_atencion):
+    """Verifica que la edad esté entre 0 y 120 años."""
+    try:
+        fnac = datetime.strptime(str(fecha_nacimiento), '%Y-%m-%d')
+        fat  = datetime.strptime(str(fecha_atencion)[:10], '%Y-%m-%d')
+        edad = (fat - fnac).days / 365.25
+        return 0 <= edad <= 120
+    except Exception:
+        return False
+
+def validar_coherencia_fechas(fecha_nacimiento, fecha_atencion):
+    """Verifica que la fecha de atención sea posterior a la de nacimiento."""
+    try:
+        fnac = datetime.strptime(str(fecha_nacimiento), '%Y-%m-%d')
+        fat  = datetime.strptime(str(fecha_atencion)[:10], '%Y-%m-%d')
+        return fat > fnac
+    except Exception:
+        return False
+
+def validar_resultado_valor(valor):
+    """Verifica que el resultado del examen sea un número positivo."""
+    try:
+        return float(valor) >= 0
+    except (ValueError, TypeError):
+        return False
+
+def validar_dosis(dosis):
+    """Verifica que la dosis tenga formato numérico + unidad. Ej: 100mg, 2.5ml."""
+    patron = r'^\d+(\.\d+)?(mg|ml|g|mcg|UI)$'
+    return bool(re.match(patron, str(dosis).strip(), re.IGNORECASE))
+
+
+# ── MOTOR PRINCIPAL ───────────────────────────────────────────────────────────
+
+def insertar_cuarentena(cursor, id_registro, campo, valor, motivo):
+    """Inserta un registro fallido en la tabla CUARENTENA."""
+    sql = """
+        INSERT INTO CUARENTENA (id_registro, campo_fallido, valor_encontrado, motivo)
+        VALUES (:1, :2, :3, :4)
+    """
+    cursor.execute(sql, [str(id_registro), str(campo), str(valor), str(motivo)])
+
+def iniciar_validacion():
+    logging.info("=== INICIO DE ETAPA 3: VALIDACIÓN ===")
+
+    ruta_dataset = "./data/Processed/dataset_hospitales_limpio.csv"
+
+    try:
+        df = pd.read_csv(ruta_dataset)
+        total = len(df)
+        logging.info(f"Dataset cargado: {total} registros a validar.")
+
+        connection = get_connection()
+        crear_tabla_cuarentena(connection)
+        cursor = connection.cursor()
+
+        errores = 0
+        ids_atencion_vistos  = set()
+        ids_examen_vistos    = set()
+
+        for _, fila in df.iterrows():
+            id_reg = fila['id_atencion']
+
+            # 1. Formato RUT
+            if not validar_formato_rut(fila['rut_paciente']):
+                insertar_cuarentena(cursor, id_reg, 'rut_paciente', fila['rut_paciente'], 'RUT_FORMATO_INVALIDO')
+                errores += 1
+
+            # 2. Dígito verificador RUT
+            elif not validar_rut_chileno(fila['rut_paciente']):
+                insertar_cuarentena(cursor, id_reg, 'rut_paciente', fila['rut_paciente'], 'RUT_DIGITO_INVALIDO')
+                errores += 1
+
+            # 3. Fecha nacimiento
+            if not validar_fecha(fila['fecha_nacimiento'], '%Y-%m-%d'):
+                insertar_cuarentena(cursor, id_reg, 'fecha_nacimiento', fila['fecha_nacimiento'], 'FECHA_NACIMIENTO_INVALIDA')
+                errores += 1
+
+            # 4. Fecha atención
+            if not validar_fecha(fila['fecha_atencion'], '%Y-%m-%d %H:%M:%S'):
+                insertar_cuarentena(cursor, id_reg, 'fecha_atencion', fila['fecha_atencion'], 'FECHA_ATENCION_INVALIDA')
+                errores += 1
+
+            # 5. Coherencia fechas
+            if not validar_coherencia_fechas(fila['fecha_nacimiento'], fila['fecha_atencion']):
+                insertar_cuarentena(cursor, id_reg, 'fecha_atencion', fila['fecha_atencion'], 'FECHA_ATENCION_ANTERIOR_NACIMIENTO')
+                errores += 1
+
+            # 6. Edad
+            if not validar_edad(fila['fecha_nacimiento'], fila['fecha_atencion']):
+                insertar_cuarentena(cursor, id_reg, 'fecha_nacimiento', fila['fecha_nacimiento'], 'EDAD_FUERA_DE_RANGO')
+                errores += 1
+
+            # 7. Sexo
+            if fila['sexo'] not in SEXOS_VALIDOS:
+                insertar_cuarentena(cursor, id_reg, 'sexo', fila['sexo'], 'SEXO_INVALIDO')
+                errores += 1
+
+            # 8. Previsión
+            if fila['prevision'] not in PREVISIONES_VALIDAS:
+                insertar_cuarentena(cursor, id_reg, 'prevision', fila['prevision'], 'PREVISION_INVALIDA')
+                errores += 1
+
+            # 9. Tipo atención
+            if fila['tipo_atencion'] not in TIPOS_ATENCION:
+                insertar_cuarentena(cursor, id_reg, 'tipo_atencion', fila['tipo_atencion'], 'TIPO_ATENCION_INVALIDO')
+                errores += 1
+
+            # 10. Resultado valor
+            if not validar_resultado_valor(fila['resultado_valor']):
+                insertar_cuarentena(cursor, id_reg, 'resultado_valor', fila['resultado_valor'], 'RESULTADO_VALOR_INVALIDO')
+                errores += 1
+
+            # 11. Dosis prescrita
+            if not validar_dosis(fila['dosis_prescrita']):
+                insertar_cuarentena(cursor, id_reg, 'dosis_prescrita', fila['dosis_prescrita'], 'DOSIS_FORMATO_INVALIDO')
+                errores += 1
+
+            # 12. Unicidad id_atencion
+            if id_reg in ids_atencion_vistos:
+                insertar_cuarentena(cursor, id_reg, 'id_atencion', id_reg, 'ID_ATENCION_DUPLICADO')
+                errores += 1
+            else:
+                ids_atencion_vistos.add(id_reg)
+
+            # 13. Unicidad id_examen
+            if fila['id_examen'] in ids_examen_vistos:
+                insertar_cuarentena(cursor, id_reg, 'id_examen', fila['id_examen'], 'ID_EXAMEN_DUPLICADO')
+                errores += 1
+            else:
+                ids_examen_vistos.add(fila['id_examen'])
+
+        connection.commit()
+
+        registros_ok = total - errores
+        logging.info(f"Validación completada: {total} registros procesados, {errores} errores enviados a CUARENTENA.")
+        logging.info("=== FIN DE ETAPA 3: VALIDACIÓN ===")
+        print(f"Etapa 3 completada: {registros_ok}/{total} registros válidos. {errores} errores en CUARENTENA.")
+
+    except NotImplementedError as e:
+        logging.warning(f"Conexión Oracle no disponible: {e}")
+        print("⚠️  Validación lógica lista, pero la conexión Oracle está pendiente.")
+    except Exception as e:
+        logging.error(f"Error crítico en validación: {e}")
+        print("Ocurrió un error. Revisa el archivo de logs.")
+
+if __name__ == "__main__":
+    iniciar_validacion()
