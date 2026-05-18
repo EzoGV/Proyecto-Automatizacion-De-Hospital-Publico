@@ -25,3 +25,227 @@
 2026-05-15 13:54:50 - INFO - Limpieza: 1 filas duplicadas eliminadas.
 2026-05-15 13:54:50 - INFO - Exportación exitosa a CSV y Excel con 210 registros finales.
 2026-05-15 13:54:50 - INFO - === FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-17 19:54:50 - INFO - === INICIO DE ETAPA 3: VALIDACIÓN ===
+2026-05-17 19:54:50 - INFO - Dataset cargado: 210 registros a validar.
+2026-05-17 19:54:50 - INFO - Catálogo CIE-10 cargado: 1433 códigos.
+2026-05-17 19:54:50 - WARNING - Conexión Oracle no disponible: Conexión Oracle pendiente de implementar.
+2026-05-17 19:56:28 - INFO - --- KPI: COMPLETITUD POR COLUMNA ---
+2026-05-17 19:56:28 - INFO - Completitud [rut_paciente]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [nombre_completo]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [fecha_nacimiento]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [sexo]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [prevision]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [id_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [fecha_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [tipo_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [codigo_cie10]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [codigo_minsal]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [dosis_prescrita]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [alergia_principio]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [id_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [codigo_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [resultado_valor]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - Completitud [unidad_medida]: 100.00% (0 incompletos de 210)
+2026-05-17 19:56:28 - INFO - --- FIN KPI: COMPLETITUD ---
+2026-05-17 20:32:40 - INFO - --- KPI: COMPLETITUD POR COLUMNA ---
+2026-05-17 20:32:40 - INFO - Completitud [rut_paciente]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [nombre_completo]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [fecha_nacimiento]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [sexo]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [prevision]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [id_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [fecha_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [tipo_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [codigo_cie10]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [codigo_minsal]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [dosis_prescrita]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [alergia_principio]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [id_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [codigo_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [resultado_valor]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - Completitud [unidad_medida]: 100.00% (0 incompletos de 210)
+2026-05-17 20:32:40 - INFO - --- FIN KPI: COMPLETITUD ---
+2026-05-17 20:33:10 - INFO - --- KPI: COMPLETITUD POR COLUMNA ---
+2026-05-17 20:33:10 - INFO - Completitud [rut_paciente]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [nombre_completo]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [fecha_nacimiento]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [sexo]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [prevision]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [id_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [fecha_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [tipo_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [codigo_cie10]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [codigo_minsal]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [dosis_prescrita]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [alergia_principio]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [id_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [codigo_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [resultado_valor]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - Completitud [unidad_medida]: 100.00% (0 incompletos de 210)
+2026-05-17 20:33:10 - INFO - --- FIN KPI: COMPLETITUD ---
+2026-05-17 21:28:56 - INFO - --- KPI: COMPLETITUD POR COLUMNA ---
+2026-05-17 21:28:56 - INFO - Completitud [rut_paciente]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [nombre_completo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [fecha_nacimiento]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [sexo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [prevision]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [id_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [fecha_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [tipo_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [codigo_cie10]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [codigo_minsal]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [dosis_prescrita]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [alergia_principio]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [id_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [codigo_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [resultado_valor]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - Completitud [unidad_medida]: 100.00% (0 incompletos de 210)
+2026-05-17 21:28:56 - INFO - --- FIN KPI: COMPLETITUD ---
+2026-05-17 21:28:56 - INFO - --- KPI: TASA DE ERROR ---
+2026-05-17 21:28:56 - INFO - Registros válidos: 186 (88.57%)
+2026-05-17 21:28:56 - INFO - Registros con error: 24 (11.43%)
+2026-05-17 21:28:56 - INFO - --- FIN KPI: TASA DE ERROR ---
+2026-05-17 21:28:56 - INFO - --- KPI: AUDITORÍA DE ERRORES ---
+2026-05-17 21:28:56 - INFO - RUT_DIGITO_INVALIDO: 21 registros
+2026-05-17 21:28:56 - INFO - FECHA_ATENCION_FUTURA: 1 registros
+2026-05-17 21:28:56 - INFO - CODIGO_CIE10_NO_EXISTE: 1 registros
+2026-05-17 21:28:56 - INFO - CODIGO_MINSAL_FORMATO_INVALIDO: 1 registros
+2026-05-17 21:28:56 - INFO - --- FIN KPI: AUDITORÍA ---
+2026-05-17 21:34:06 - INFO - --- KPI: COMPLETITUD POR COLUMNA ---
+2026-05-17 21:34:06 - INFO - Completitud [rut_paciente]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:06 - INFO - Completitud [nombre_completo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:06 - INFO - Completitud [fecha_nacimiento]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [sexo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [prevision]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [id_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [fecha_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [tipo_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [codigo_cie10]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [codigo_minsal]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [dosis_prescrita]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [alergia_principio]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [id_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [codigo_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [resultado_valor]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [unidad_medida]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - --- FIN KPI: COMPLETITUD ---
+2026-05-17 21:34:07 - INFO - --- KPI: COMPLETITUD POR COLUMNA ---
+2026-05-17 21:34:07 - INFO - Completitud [rut_paciente]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [nombre_completo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [fecha_nacimiento]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [sexo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [prevision]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [id_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [fecha_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [tipo_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [codigo_cie10]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [codigo_minsal]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [dosis_prescrita]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [alergia_principio]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [id_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [codigo_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [resultado_valor]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - Completitud [unidad_medida]: 100.00% (0 incompletos de 210)
+2026-05-17 21:34:07 - INFO - --- FIN KPI: COMPLETITUD ---
+2026-05-17 21:34:07 - INFO - --- KPI: TASA DE ERROR ---
+2026-05-17 21:34:07 - INFO - Registros válidos: 186 (88.57%)
+2026-05-17 21:34:07 - INFO - Registros con error: 24 (11.43%)
+2026-05-17 21:34:07 - INFO - --- FIN KPI: TASA DE ERROR ---
+2026-05-17 21:34:07 - INFO - --- KPI: AUDITORÍA DE ERRORES ---
+2026-05-17 21:34:07 - INFO - RUT_DIGITO_INVALIDO: 21 registros
+2026-05-17 21:34:07 - INFO - FECHA_ATENCION_FUTURA: 1 registros
+2026-05-17 21:34:07 - INFO - CODIGO_CIE10_NO_EXISTE: 1 registros
+2026-05-17 21:34:07 - INFO - CODIGO_MINSAL_FORMATO_INVALIDO: 1 registros
+2026-05-17 21:34:07 - INFO - --- FIN KPI: AUDITORÍA ---
+2026-05-17 21:39:41 - INFO - --- KPI: COMPLETITUD POR COLUMNA ---
+2026-05-17 21:39:41 - INFO - Completitud [rut_paciente]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [nombre_completo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [fecha_nacimiento]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [sexo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [prevision]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [id_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [fecha_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [tipo_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [codigo_cie10]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [codigo_minsal]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [dosis_prescrita]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [alergia_principio]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [id_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [codigo_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [resultado_valor]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [unidad_medida]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - --- FIN KPI: COMPLETITUD ---
+2026-05-17 21:39:41 - INFO - --- KPI: COMPLETITUD POR COLUMNA ---
+2026-05-17 21:39:41 - INFO - Completitud [rut_paciente]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [nombre_completo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [fecha_nacimiento]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [sexo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [prevision]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [id_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [fecha_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [tipo_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [codigo_cie10]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [codigo_minsal]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [dosis_prescrita]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [alergia_principio]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [id_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [codigo_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [resultado_valor]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - Completitud [unidad_medida]: 100.00% (0 incompletos de 210)
+2026-05-17 21:39:41 - INFO - --- FIN KPI: COMPLETITUD ---
+2026-05-17 21:39:41 - INFO - --- KPI: TASA DE ERROR ---
+2026-05-17 21:39:41 - INFO - Registros válidos: 186 (88.57%)
+2026-05-17 21:39:41 - INFO - Registros con error: 24 (11.43%)
+2026-05-17 21:39:41 - INFO - --- FIN KPI: TASA DE ERROR ---
+2026-05-17 21:39:41 - INFO - --- KPI: AUDITORÍA DE ERRORES ---
+2026-05-17 21:39:41 - INFO - RUT_DIGITO_INVALIDO: 21 registros
+2026-05-17 21:39:41 - INFO - FECHA_ATENCION_FUTURA: 1 registros
+2026-05-17 21:39:41 - INFO - CODIGO_CIE10_NO_EXISTE: 1 registros
+2026-05-17 21:39:41 - INFO - CODIGO_MINSAL_FORMATO_INVALIDO: 1 registros
+2026-05-17 21:39:41 - INFO - --- FIN KPI: AUDITORÍA ---
+2026-05-17 21:42:08 - INFO - --- KPI: COMPLETITUD POR COLUMNA ---
+2026-05-17 21:42:08 - INFO - Completitud [rut_paciente]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [nombre_completo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [fecha_nacimiento]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [sexo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [prevision]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [id_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [fecha_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [tipo_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [codigo_cie10]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [codigo_minsal]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [dosis_prescrita]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [alergia_principio]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [id_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [codigo_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [resultado_valor]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [unidad_medida]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - --- FIN KPI: COMPLETITUD ---
+2026-05-17 21:42:08 - INFO - --- KPI: COMPLETITUD POR COLUMNA ---
+2026-05-17 21:42:08 - INFO - Completitud [rut_paciente]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [nombre_completo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [fecha_nacimiento]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [sexo]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [prevision]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [id_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [fecha_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [tipo_atencion]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [codigo_cie10]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [codigo_minsal]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [dosis_prescrita]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [alergia_principio]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [id_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [codigo_examen]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [resultado_valor]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - Completitud [unidad_medida]: 100.00% (0 incompletos de 210)
+2026-05-17 21:42:08 - INFO - --- FIN KPI: COMPLETITUD ---
+2026-05-17 21:42:08 - INFO - --- KPI: TASA DE ERROR ---
+2026-05-17 21:42:08 - INFO - Registros válidos: 186 (88.57%)
+2026-05-17 21:42:08 - INFO - Registros con error: 24 (11.43%)
+2026-05-17 21:42:08 - INFO - --- FIN KPI: TASA DE ERROR ---
+2026-05-17 21:42:08 - INFO - --- KPI: AUDITORÍA DE ERRORES ---
+2026-05-17 21:42:08 - INFO - RUT_DIGITO_INVALIDO: 21 registros
+2026-05-17 21:42:08 - INFO - FECHA_ATENCION_FUTURA: 1 registros
+2026-05-17 21:42:08 - INFO - CODIGO_CIE10_NO_EXISTE: 1 registros
+2026-05-17 21:42:08 - INFO - CODIGO_MINSAL_FORMATO_INVALIDO: 1 registros
+2026-05-17 21:42:08 - INFO - --- FIN KPI: AUDITORÍA ---
