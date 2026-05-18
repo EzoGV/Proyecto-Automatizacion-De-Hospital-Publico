@@ -21,7 +21,7 @@ class AppHospital(ctk.CTk):
         self.frame_botones = ctk.CTkFrame(self)
         self.frame_botones.pack(pady=10, fill="x", padx=40)
 
-        self.btn_inicializar = ctk.CTkButton(self.frame_botones, text="🧱 1. Crear Tablas de Pacientes", fg_color="#2baf52", hover_color="#1e7a39", command=self.inicializar_tablas_hospital)
+        self.btn_inicializar = ctk.CTkButton(self.frame_botones, text="🧱 1. Crear Estructura Base Hospital", fg_color="#2baf52", hover_color="#1e7a39", command=self.inicializar_tablas_hospital)
         self.btn_inicializar.pack(side="left", padx=20, pady=10, expand=True)
 
         self.btn_consultar = ctk.CTkButton(self.frame_botones, text="🔄 2. Ver Tablas Existentes", command=self.listar_tablas_y_datos)
@@ -35,97 +35,142 @@ class AppHospital(ctk.CTk):
         self.txt_resultados.pack(pady=10)
 
     def get_connection(self):
-        # 1. Ruta absoluta de la carpeta de tu wallet (Asegúrate de que estén ahí cwallet.sso, tnsnames.ora, etc.)
-        wallet_dir = r"C:\Users\Pc\Documents\GitHub\Proyecto-Automatizacion-De-Hospital-Publico\wallet"
+        """
+        CONEXIÓN EN MODO PRODUCCIÓN (NUBE OCI)
+        Lee dinámicamente la Wallet sin importar en qué computadora se ejecute.
+        """
+        import os
         
-        # 2. Credenciales de la base de datos en la nube
+        # 1. Detecta automáticamente la carpeta donde está guardado este archivo 'interfaz.py'
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        
+        # 2. Si tu archivo está en la raíz, calcula la ruta hacia la carpeta 'wallet'
+        #    (Asegúrate de tener la carpeta 'wallet' con sus archivos al lado de interfaz.py)
+        wallet_dir = os.path.join(base_dir, "wallet")
+        
+        # En caso de que ejecutes desde una subcarpeta (ej: 'src/'), descomenta la línea de abajo:
+        wallet_dir = os.path.join(os.path.dirname(base_dir), "wallet")
+        
+        # 3. Configurar variables de entorno dinámicas para la Wallet
+        os.environ["TNS_ADMIN"] = wallet_dir
+        
+        # 4. Credenciales de producción en la nube
         usuario = "ADMIN"
         clave = "Pax.,ytrG231"
-        
-        # 3. La contraseña de seguridad con la que se descargó la Wallet desde Oracle Cloud
-        # NOTA: Si no la recuerdas o no la definiste, por defecto suele ser la misma de la base de datos o una que tú creaste al descargarla.
-        wallet_password = "Pax.,ytrG231" 
+        dsn_nube = "pipelinehibridohospital_high"
 
-        # Conexión nativa robusta para modo Thin en la nube
+        # Conexión nativa robusta en modo Thin para la nube
         return oracledb.connect(
             user=usuario,
             password=clave,
-            dsn="pipelinehibridohospital_high",
+            dsn=dsn_nube,
             config_dir=wallet_dir,
             wallet_location=wallet_dir,
-            wallet_password=wallet_password
+            wallet_password=clave  # Usamos la misma contraseña de la base de datos
         )
 
     def inicializar_tablas_hospital(self):
-        """Crea la estructura real del hospital con RUT, Nombre, etc."""
+        """Crea la estructura del hospital según la documentación del pipeline"""
         self.txt_resultados.delete("0.0", "end")
-        self.txt_resultados.insert("end", "⌛ Conectando a Oracle para inicializar la base de datos...\n")
+        self.txt_resultados.insert("end", "⌛ Conectando a Oracle local para inicializar tablas...\n")
         
         try:
             conn = self.get_connection()
             cursor = conn.cursor()
 
-            # Intentamos crear la tabla PACIENTES con las columnas que necesitas
+            # 1. Tabla PACIENTES (Datos Demográficos)
             try:
                 cursor.execute("""
                     CREATE TABLE pacientes (
                         rut_paciente VARCHAR2(12) PRIMARY KEY,
-                        nombre_completo VARCHAR2(100),
-                        edad NUMBER,
+                        nombre_completo VARCHAR2(150) NOT NULL,
+                        fecha_nacimiento DATE NOT NULL,
+                        sexo CHAR(1) CHECK (sexo IN ('M', 'F', 'I')),
+                        prevision VARCHAR2(30)
+                    )
+                """)
+                self.txt_resultados.insert("end", "✅ Tabla 'PACIENTES' creada.\n")
+                
+                # Insertar registro inicial estructurado correctamente
+                cursor.execute("""
+                    INSERT INTO pacientes VALUES (
+                        '12.345.678-9', 'Juan Perez Jose', TO_DATE('1980-05-15', 'YYYY-MM-DD'), 'M', 'FONASA'
+                    )
+                """)
+                conn.commit()
+                self.txt_resultados.insert("end", "📌 Paciente de prueba insertado.\n")
+            except oracledb.DatabaseError as e:
+                if e.args[0].code == 955: self.txt_resultados.insert("end", "ℹ️ Tabla 'PACIENTES' ya existía.\n")
+                else: raise e
+
+            # 2. Tabla ATENCIONES (Historial Clínico)
+            try:
+                cursor.execute("""
+                    CREATE TABLE atenciones (
+                        id_atencion VARCHAR2(36) PRIMARY KEY,
+                        rut_paciente VARCHAR2(12) REFERENCES pacientes(rut_paciente),
+                        fecha_atencion DATE NOT NULL,
                         diagnostico VARCHAR2(200)
                     )
                 """)
-                self.txt_resultados.insert("end", "✅ Tabla 'PACIENTES' creada exitosamente con campos (rut_paciente, nombre_completo, edad, diagnostico).\n")
-                
-                # Insertamos un paciente de ejemplo para simular la carga del Data Engineer
-                cursor.execute("INSERT INTO pacientes VALUES ('12.345.678-9', 'Juan Perez Jose', 45, 'Control Preventivo')")
-                conn.commit()
-                self.txt_resultados.insert("end", "📌 Registro de prueba insertado en 'PACIENTES'.\n")
-
+                self.txt_resultados.insert("end", "✅ Tabla 'ATENCIONES' creada.\n")
             except oracledb.DatabaseError as e:
-                error_obj, = e.args
-                if error_obj.code == 955: # Error 955 significa que la tabla ya existía
-                    self.txt_resultados.insert("end", "ℹ️ La tabla 'PACIENTES' ya existía en la base de datos.\n")
-                else:
-                    raise e
+                if e.args[0].code == 955: self.txt_resultados.insert("end", "ℹ️ Tabla 'ATENCIONES' ya existía.\n")
+                else: raise e
+
+            # 3. Tabla LOGS DE AUDITORÍA (Métrica de Cobertura de tu doc técnica)
+            try:
+                cursor.execute("""
+                    CREATE TABLE audit_log (
+                        id_log NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+                        etapa_pipeline VARCHAR2(50),
+                        kpi_nombre VARCHAR2(50),
+                        valor_calculado VARCHAR2(20),
+                        estado VARCHAR2(15),
+                        timestamp_ejecucion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    )
+                """)
+                self.txt_resultados.insert("end", "✅ Tabla 'AUDIT_LOG' creada para auditorías DataOps.\n")
+            except oracledb.DatabaseError as e:
+                if e.args[0].code == 955: self.txt_resultados.insert("end", "ℹ️ Tabla 'AUDIT_LOG' ya existía.\n")
+                else: raise e
 
             cursor.close()
             conn.close()
-            self.txt_resultados.insert("end", "\n👍 ¡Estructura base lista! Ahora presiona 'Ver Tablas Existentes'.")
+            self.txt_resultados.insert("end", "\n👍 ¡Entorno base configurado y listo en tu Docker!")
 
         except Exception as e:
-            self.txt_resultados.insert("end", f"\n❌ Error: {str(e)}")
+            self.txt_resultados.insert("end", f"\n❌ Error al inicializar: {str(e)}")
 
     def listar_tablas_y_datos(self):
-        """Muestra qué tablas existen en la base de datos de Oracle Cloud"""
+        """Muestra qué tablas existen en el entorno actual"""
         self.txt_resultados.delete("0.0", "end")
         
         try:
             conn = self.get_connection()
             cursor = conn.cursor()
 
-            # Consulta maestra de Oracle para ver las tablas del usuario actual
             cursor.execute("SELECT table_name FROM user_tables ORDER BY table_name")
             tablas = cursor.fetchall()
 
-            self.txt_resultados.insert("end", "📋 === TABLAS DETECTADAS EN TU BASE DE DATOS ===\n")
+            self.txt_resultados.insert("end", "📋 === TABLAS DETECTADAS ===\n")
             if not tablas:
                 self.txt_resultados.insert("end", "No hay tablas creadas por el usuario todavía.\n")
             else:
                 for t in tablas:
-                    self.txt_resultados.insert("end", f"🔹 Tabla encontrada: {t[0]}\n")
+                    self.txt_resultados.insert("end", f"🔹 [{t[0]}]\n")
             
-            # Si existe la tabla pacientes, mostramos su contenido para validar las columnas
-            self.txt_resultados.insert("end", "\n🔍 === CONTENIDO DE LA TABLA 'PACIENTES' ===\n")
+            # Consultar contenido base de pacientes
+            self.txt_resultados.insert("end", "\n🔍 === VISTA RÁPIDA: PACIENTES ===\n")
             try:
-                cursor.execute("SELECT rut_paciente, nombre_completo, diagnostico FROM pacientes")
+                cursor.execute("SELECT rut_paciente, nombre_completo, prevision FROM pacientes")
                 pacientes = cursor.fetchall()
                 if not pacientes:
                     self.txt_resultados.insert("end", "La tabla está vacía.\n")
                 for p in pacientes:
-                    self.txt_resultados.insert("end", f"🪪 RUT: {p[0]} | 👤 Nombre: {p[1]} | 🩺 Diagnóstico: {p[2]}\n")
+                    self.txt_resultados.insert("end", f"🪪 RUT: {p[0]} | 👤 Nombre: {p[1]} | 🏥 Previsión: {p[2]}\n")
             except oracledb.DatabaseError:
-                self.txt_resultados.insert("end", "⚠️ No se pudo leer 'PACIENTES' (¿Ya presionaste el botón verde para crearla?).\n")
+                self.txt_resultados.insert("end", "⚠️ No se pudo leer la tabla 'PACIENTES'.\n")
 
             cursor.close()
             conn.close()

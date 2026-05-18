@@ -7,5 +7,5 @@ services:
     environment:
       - ORACLE_PASSWORD=Pax.,ytrG231  # 👈 Ponemos la misma clave de la nube
       - APP_USER=ADMIN               # 👈 Creamos el usuario ADMIN igual que en la nube
-      - APP_PASSWORD=Pax.,ytrG231
+      - APP_USER_PASSWORD=Pax.,ytrG231
     shm_size: '1gb'
