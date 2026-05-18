@@ -3,7 +3,7 @@ services:
     image: gvenzl/oracle-free:latest
     container_name: oracle_hospital_db
     ports:
-      - "1521:1521"
+      - "1522:1521"
     environment:
       - ORACLE_PASSWORD=Admin12345
     # Esto asegura que Oracle tenga espacio para arrancar
