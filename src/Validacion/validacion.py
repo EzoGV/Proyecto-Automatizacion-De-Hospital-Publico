@@ -418,8 +418,6 @@ if __name__ == "__main__":
 
         print()
         print()
-        print(f"Filas en df: {len(df)}")
-        calcular_kpi_completitud(df)
         calcular_kpi_completitud(df)
         calcular_kpi_errores(len(df), len(errores))
         calcular_kpi_auditoria(errores)
