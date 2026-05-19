@@ -26,13 +26,16 @@ Actualmente, el entorno se encuentra **operativo**. Se ha utilizado Oracle datab
    cd Proyecto-Automatizacion-De-Hospital-Publico
 
 2. **Como levantar el Docker**
+   ```bash
    docker compose up -d
-   'docker ps' para verificar que esta todo en orden 
+   docker ps para verificar que esta todo en orden 
 
 3. **Librerias y levantar entorno virtual**
+   ```bash
    python -m venv venv
    pip install oracledb python-dotenv
    pip install customtkinter
 
-4. **Comando para correr test unitario**   
+4. **Comando para correr test unitario**
+   ```bash   
    python test.py
