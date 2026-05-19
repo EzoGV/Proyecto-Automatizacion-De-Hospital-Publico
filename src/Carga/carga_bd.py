@@ -2,6 +2,7 @@
 import pandas as pd
 import os
 import oracledb
+from cryptography.fernet import Fernet
 from dotenv import load_dotenv, find_dotenv
 from pathlib import Path
 
@@ -59,7 +60,6 @@ def iniciar_carga():
         logger.error(f"No se encontró el archivo de validados: {ruta_validos}")
         print("❌ Error: No existe el archivo validado. Ejecuta la Etapa 3 primero.")
         return
-
     try:
         df = pd.read_csv(ruta_validos)
         total_registros = len(df)
@@ -70,6 +70,16 @@ def iniciar_carga():
 
         insertados_ok = 0
         errores_bd = 0
+        
+        # --- INICIO DISEÑO CIFRADO AES-256 ---
+        # Obtenemos la llave desde el .env
+        llave_secreta = os.getenv("DB_ENCRYPTION_KEY")
+        if not llave_secreta:
+            raise ValueError("❌ ERROR: DB_ENCRYPTION_KEY no configurada en .env")
+        
+        # Preparamos el motor de cifrado
+        cipher_suite = Fernet(llave_secreta.encode()) 
+        # --- FIN DISEÑO CIFRADO ---
 
         # Iterar sobre cada fila e insertar respetando el Schema Relacional
         for index, fila in df.iterrows():
@@ -125,7 +135,7 @@ def iniciar_carga():
                 alergia = str(fila['alergia_principio']).strip()
                 if alergia.upper() != 'NINGUNA' and alergia != "" and alergia.lower() != "nan":
                     cursor.execute("SELECT 1 FROM alergias WHERE rut_paciente = :1 AND UPPER(alergia_principio) = :2", 
-                                   [str(fila['rut_paciente']), alergia.upper()])
+                                [str(fila['rut_paciente']), alergia.upper()])
                     if not cursor.fetchone():
                         sql_alergia = """
                             INSERT INTO alergias (rut_paciente, alergia_principio)
