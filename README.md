@@ -24,3 +24,15 @@ Actualmente, el entorno se encuentra **operativo**. Se ha utilizado Oracle datab
    ```bash
    git clone [https://github.com/TU_USUARIO/Proyecto-Automatizacion-De-Hospital-Publico.git](https://github.com/TU_USUARIO/Proyecto-Automatizacion-De-Hospital-Publico.git)
    cd Proyecto-Automatizacion-De-Hospital-Publico
+
+2. **Como levantar el Docker**
+   docker compose up -d
+   'docker ps' para verificar que esta todo en orden 
+
+3. **Librerias y levantar entorno virtual**
+   python -m venv venv
+   pip install oracledb python-dotenv
+   pip install customtkinter
+
+4. **Comando para correr test unitario**   
+   python test.py

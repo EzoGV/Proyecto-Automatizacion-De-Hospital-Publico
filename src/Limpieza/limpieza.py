@@ -1,18 +1,8 @@
 import pandas as pd
 import os
-import logging
-
 # 1. CONFIGURACIÓN DE CARPETA DE LOGS (Mantenemos la trazabilidad)
-ruta_logs = "./RegistroLogs"
-os.makedirs(ruta_logs, exist_ok=True)
-archivo_log = os.path.join(ruta_logs, 'pipeline_ejecucion.log')
-
-logging.basicConfig(
-    filename=archivo_log,
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
-)
+from utils.logger import logger
+from utils.logger import ruta_logs
 
 def limpiar_rut(rut):
     """
@@ -32,7 +22,7 @@ def limpiar_rut(rut):
     return f"{rut_str[:-1]}-{rut_str[-1]}"
 
 def iniciar_limpieza():
-    logging.info("=== INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===")
+    logger.info("=== INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===")
     
     ruta_raw = "./data/raw"
     ruta_processed = "./data/processed"
@@ -50,13 +40,13 @@ def iniciar_limpieza():
         
         df_consolidado = pd.concat([df_csv, df_excel], ignore_index=True)
         total_inicial = len(df_consolidado)
-        logging.info(f"Lectura exitosa. Registros consolidados: {total_inicial}")
+        logger.info(f"Lectura exitosa. Registros consolidados: {total_inicial}")
         
         # 2. ELIMINAR DUPLICADOS EXACTOS
         df_consolidado.drop_duplicates(inplace=True)
         total_sin_duplicados = len(df_consolidado)
         duplicados_eliminados = total_inicial - total_sin_duplicados
-        logging.info(f"Limpieza: {duplicados_eliminados} filas duplicadas eliminadas.")
+        logger.info(f"Limpieza: {duplicados_eliminados} filas duplicadas eliminadas.")
         
         # 3. TRATAMIENTO DE NULOS Y NORMALIZACIÓN DE NOMBRES
         df_consolidado['nombre_completo'] = df_consolidado['nombre_completo'].fillna('DESCONOCIDO')
@@ -88,8 +78,8 @@ def iniciar_limpieza():
         # Generar Excel (ideal para humanos/trazabilidad)
         df_consolidado.to_excel(archivo_salida_excel, index=False, sheet_name='Datos_Limpios')
         
-        logging.info(f"Exportación exitosa a CSV y Excel con {total_sin_duplicados} registros finales.")
-        logging.info("=== FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===")
+        logger.info(f"Exportación exitosa a CSV y Excel con {total_sin_duplicados} registros finales.")
+        logger.info("=== FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===")
         
         print(f"Etapa 2 Completada: Limpieza aplicada.")
         print(f"Archivos generados en la carpeta '{ruta_processed}':")
@@ -97,7 +87,7 @@ def iniciar_limpieza():
         print(f"    {archivo_salida_excel}")
         
     except Exception as e:
-        logging.error(f"Error crítico en la limpieza: {e}")
+        logger.error(f"Error crítico en la limpieza: {e}")
         print(f"Ocurrió un error. Revisa el archivo de logs.")
 
 if __name__ == "__main__":
