@@ -36,7 +36,7 @@ console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
 console_formatter = logging.Formatter('%(asctime)s - %(levelname)s - [CARGA] - %(message)s', datefmt='%H:%M:%S')
 console_handler.setFormatter(console_formatter)
-logging.getlogging().addHandler(console_handler)
+logging.getLogger().addHandler(console_handler)
 
 # ── CONEXIÓN ORACLE SEGURA ───────────────────────────────────────────────────
 def get_connection():
@@ -84,7 +84,10 @@ def iniciar_carga():
 
         insertados_ok = 0
         errores_bd = 0
-        
+
+        loading_message = f"⏳ Insertando datos en Oracle... Total a procesar: {total_registros}"
+        logging.info(loading_message)
+
         # --- INICIO DISEÑO CIFRADO AES-256 ---
         # Obtenemos la llave desde el .env
         llave_secreta = os.getenv("DB_ENCRYPTION_KEY")
@@ -101,7 +104,7 @@ def iniciar_carga():
                 # 1. TABLA: pacientes
                 try:
                     sql_paciente = """
-                        INSERT INTO pacientes (rut_paciente, nombre_completo, fecha_nacimiento, sexo, prevision)
+                        INSERT INTO PACIENTES (rut_paciente, nombre_completo, fecha_nacimiento, sexo, prevision)
                         VALUES (:1, :2, TO_DATE(:3, 'YYYY-MM-DD'), :4, :5)
                     """
                     cursor.execute(sql_paciente, [
@@ -121,7 +124,7 @@ def iniciar_carga():
 
                 # 2. TABLA: atenciones
                 sql_atencion = """
-                    INSERT INTO atenciones (id_atencion, rut_paciente, fecha_atencion, tipo_atencion, codigo_cie10)
+                    INSERT INTO ATENCIONES (id_atencion, rut_paciente, fecha_atencion, tipo_atencion, codigo_cie10)
                     VALUES (:1, :2, TO_TIMESTAMP(:3, 'YYYY-MM-DD HH24:MI:SS'), :4, :5)
                 """
                 cursor.execute(sql_atencion, [
@@ -136,7 +139,7 @@ def iniciar_carga():
                 codigo_min = str(fila['codigo_minsal'])
                 if pd.notna(codigo_min) and codigo_min.strip() != "" and codigo_min.lower() != "nan":
                     sql_med = """
-                        INSERT INTO medicamentos (id_atencion, codigo_minsal, dosis_prescrita)
+                        INSERT INTO MEDICAMENTOS (id_atencion, codigo_minsal, dosis_prescrita)
                         VALUES (:1, :2, :3)
                     """
                     cursor.execute(sql_med, [
@@ -148,11 +151,11 @@ def iniciar_carga():
                 # 4. TABLA: alergias (id es SERIAL, no lo mandamos)
                 alergia = str(fila['alergia_principio']).strip()
                 if alergia.upper() != 'NINGUNA' and alergia != "" and alergia.lower() != "nan":
-                    cursor.execute("SELECT 1 FROM alergias WHERE rut_paciente = :1 AND UPPER(alergia_principio) = :2", 
+                    cursor.execute("SELECT 1 FROM ALERGIAS WHERE rut_paciente = :1 AND UPPER(alergia_principio) = :2", 
                                 [str(fila['rut_paciente']), alergia.upper()])
                     if not cursor.fetchone():
                         sql_alergia = """
-                            INSERT INTO alergias (rut_paciente, alergia_principio)
+                            INSERT INTO ALERGIAS (rut_paciente, alergia_principio)
                             VALUES (:1, :2)
                         """
                         cursor.execute(sql_alergia, [
@@ -164,7 +167,7 @@ def iniciar_carga():
                 id_exam = str(fila['id_examen'])
                 if pd.notna(id_exam) and id_exam.strip() != "" and id_exam.lower() != "nan":
                     sql_examen = """
-                        INSERT INTO examenes (id_examen, id_atencion, codigo_examen, resultado_valor, unidad_medida)
+                        INSERT INTO EXAMENES (id_examen, id_atencion, codigo_examen, resultado_valor, unidad_medida)
                         VALUES (:1, :2, :3, :4, :5)
                     """
                     val_resultado = None if pd.isna(fila['resultado_valor']) else float(fila['resultado_valor'])

@@ -81,7 +81,7 @@ class AppHospital(ctk.CTk):
             # 1. Tabla PACIENTES (Datos Demográficos)
             try:
                 cursor.execute("""
-                    CREATE TABLE pacientes (
+                    CREATE TABLE PACIENTES (
                         rut_paciente VARCHAR2(12) PRIMARY KEY,
                         nombre_completo VARCHAR2(150) NOT NULL,
                         fecha_nacimiento DATE NOT NULL,
@@ -93,7 +93,7 @@ class AppHospital(ctk.CTk):
                 
                 # Insertar registro inicial estructurado correctamente
                 cursor.execute("""
-                    INSERT INTO pacientes VALUES (
+                    INSERT INTO PACIENTES VALUES (
                         '12.345.678-9', 'Juan Perez Jose', TO_DATE('1980-05-15', 'YYYY-MM-DD'), 'M', 'FONASA'
                     )
                 """)
@@ -106,9 +106,9 @@ class AppHospital(ctk.CTk):
             # 2. Tabla ATENCIONES (Historial Clínico)
             try:
                 cursor.execute("""
-                    CREATE TABLE atenciones (
+                    CREATE TABLE ATENCIONES (
                         id_atencion VARCHAR2(36) PRIMARY KEY,
-                        rut_paciente VARCHAR2(12) REFERENCES pacientes(rut_paciente),
+                        rut_paciente VARCHAR2(12) REFERENCES PACIENTES(rut_paciente),
                         fecha_atencion DATE NOT NULL,
                         diagnostico VARCHAR2(200)
                     )
@@ -121,7 +121,7 @@ class AppHospital(ctk.CTk):
             # 3. Tabla LOGS DE AUDITORÍA (Métrica de Cobertura de tu doc técnica)
             try:
                 cursor.execute("""
-                    CREATE TABLE audit_log (
+                    CREATE TABLE AUDIT_LOG (
                         id_log NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
                         etapa_pipeline VARCHAR2(50),
                         kpi_nombre VARCHAR2(50),
