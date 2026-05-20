@@ -1,25 +1,36 @@
 # src/Validacion/validacion.py
 import pandas as pd
 import os
+import sys
 import re
 import oracledb
+import logging  # <-- AGREGA ESTA IMPORTACIÓN NATIVA OBLIGATORIAMENTE
 from datetime import datetime
 from dotenv import load_dotenv
 
-# Cargar credenciales ocultas desde .env
-load_dotenv()
+# === CONTROL DE RUTAS ABSOLUTAS Y MÓDULOS (DataOps) ===
+dir_actual = os.path.dirname(os.path.abspath(__file__))
+ruta_raiz = os.path.abspath(os.path.join(dir_actual, "..", ".."))
+ruta_env = os.path.join(ruta_raiz, ".env")
+
+ruta_src = os.path.join(ruta_raiz, "src")
+if ruta_src not in sys.path:
+    sys.path.append(ruta_src)
+
+# CAMBIO CLAVE: Agregamos override=True para obligar al sistema a inyectar los valores
+load_dotenv(dotenv_path=ruta_env, override=True)
+# ======================================================
 
 # ── logger MEJORADO (DataOps) ──────────────────────────────────────────────
 from utils.logger import logger
 from utils.logger import ruta_logs
 
-console_handler = logger.StreamHandler()
-console_handler.setLevel(logger.INFO)
-console_formatter = logger.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%H:%M:%S')
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%H:%M:%S')
 console_handler.setFormatter(console_formatter)
-logger.getLogger().addHandler(console_handler)
+logger.addHandler(console_handler)
 
-# ── CONEXIÓN ORACLE SEGURA ──────────────────────────────────────────────────
 # ── CONEXIÓN ORACLE SEGURA ──────────────────────────────────────────────────
 def get_connection():
     """Establece la conexión a Oracle usando variables de entorno (.env) en Modo Thin"""
@@ -27,10 +38,18 @@ def get_connection():
     DB_PASSWORD = os.getenv("DB_PASSWORD")
     DB_HOST = os.getenv("DB_HOST", "localhost")
     DB_PORT = os.getenv("DB_PORT", "1521")
-    DB_SERVICE = os.getenv("DB_SERVICE", "XE")
+    DB_SERVICE = os.getenv("DB_SERVICE", "FREEPDB1") # <-- Asegúrate de que diga FREEPDB1 por tu Docker de Oracle 23ai
+    
+    # --- BLOQUE DE CONTROL DE ANOMALÍAS (DataOps) ---
+    # Esto te dirá de inmediato en la consola si las variables vienen vacías
+    logger.info(f"[DEBUG] Validando variables leídas del .env -> Usuario: {DB_USER}, Clave cargada: {'SÍ' if DB_PASSWORD else 'NO'}")
+    
+    if not DB_USER or not DB_PASSWORD:
+        logger.error("Las credenciales leídas del archivo .env están vacías (None). Verifica que el archivo .env no tenga espacios extras.")
+        raise ValueError("Error: Credenciales no encontradas en el entorno operativo.")
+    # -------------------------------------------------
     
     try:
-        # Al pasar host, port y service_name por separado, oracledb usa automáticamente el modo THIN
         connection = oracledb.connect(
             user=DB_USER, 
             password=DB_PASSWORD, 

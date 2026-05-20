@@ -2039,3 +2039,75 @@ Help: https://docs.oracle.com/error-help/db/ora-00942/
 Help: https://docs.oracle.com/error-help/db/ora-00942/
 2026-05-18 14:19:18 - INFO - [CARGA BD] - Proceso de Carga finalizado. Insertados OK: 0 | Errores BD: 188
 2026-05-18 14:19:18 - INFO - [CARGA BD] - === FIN DE ETAPA 4: CARGA A BASE DE DATOS ===
+2026-05-19 22:30:33 - INFO - === INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-19 22:30:33 - INFO - Dataset cargado desde Processed: 210 registros a validar.
+2026-05-19 22:30:33 - ERROR - Error crítico al conectar a Oracle: DPY-4001: no credentials specified
+2026-05-19 22:30:33 - ERROR - Error crítico en validación: DPY-4001: no credentials specified
+2026-05-19 22:32:23 - INFO - === INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-19 22:32:23 - INFO - Dataset cargado desde Processed: 210 registros a validar.
+2026-05-19 22:32:23 - ERROR - Error crítico al conectar a Oracle: DPY-4001: no credentials specified
+2026-05-19 22:32:23 - ERROR - Error crítico en validación: DPY-4001: no credentials specified
+2026-05-19 22:32:36 - INFO - === INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-19 22:32:36 - INFO - Dataset cargado desde Processed: 210 registros a validar.
+2026-05-19 22:32:36 - ERROR - Error crítico al conectar a Oracle: DPY-4001: no credentials specified
+2026-05-19 22:32:36 - ERROR - Error crítico en validación: DPY-4001: no credentials specified
+2026-05-19 22:35:36 - INFO - === INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-19 22:35:36 - INFO - Dataset cargado desde Processed: 210 registros a validar.
+2026-05-19 22:35:36 - INFO - [DEBUG] Validando variables leídas del .env -> Usuario: ADMIN, Clave cargada: NO
+2026-05-19 22:35:36 - ERROR - Las credenciales leídas del archivo .env están vacías (None). Verifica que el archivo .env no tenga espacios extras.
+2026-05-19 22:35:36 - ERROR - Error crítico en validación: Error: Credenciales no encontradas en el entorno operativo.
+2026-05-19 22:36:24 - INFO - === INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-19 22:36:24 - INFO - Dataset cargado desde Processed: 210 registros a validar.
+2026-05-19 22:36:24 - INFO - [DEBUG] Validando variables leídas del .env -> Usuario: ADMIN, Clave cargada: SÍ
+2026-05-19 22:36:24 - INFO - Conexión exitosa a Oracle en 127.0.0.1 (Servicio: FREEPDB1)
+2026-05-19 22:36:24 - INFO - Tabla CUARENTENA verificada/creada exitosamente en BD.
+2026-05-19 22:36:24 - INFO - Iniciando escaneo de Reglas de Negocio registro por registro...
+2026-05-19 22:36:24 - WARNING - Fila 1 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 8 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 12 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 13 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 15 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 25 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 45 enviada a cuarentena. Motivo(s): FECHA_ATENCION_FUTURA
+2026-05-19 22:36:25 - WARNING - Fila 59 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 61 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 69 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 92 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 96 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 98 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 116 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 129 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 132 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 138 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 160 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 176 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 182 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 184 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - WARNING - Fila 195 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-19 22:36:25 - INFO - Separando registros Válidos e Inválidos...
+2026-05-19 22:36:26 - INFO - --- INICIO KPI: COMPLETITUD POR COLUMNA ---
+2026-05-19 22:36:26 - INFO - Completitud OK en [rut_paciente]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [nombre_completo]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [fecha_nacimiento]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [sexo]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [prevision]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [id_atencion]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [fecha_atencion]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [tipo_atencion]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [codigo_cie10]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [codigo_minsal]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [dosis_prescrita]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [alergia_principio]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [id_examen]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [codigo_examen]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [resultado_valor]: 100.00%
+2026-05-19 22:36:26 - INFO - Completitud OK en [unidad_medida]: 100.00%
+2026-05-19 22:36:26 - INFO - --- INICIO KPI: TASA DE ERROR ---
+2026-05-19 22:36:26 - INFO - Registros válidos procesados: 188 (89.52%)
+2026-05-19 22:36:26 - INFO - Registros con error (Cuarentena): 22 (10.48%)
+2026-05-19 22:36:26 - INFO - --- INICIO KPI: AUDITORÍA DE ERRORES ---
+2026-05-19 22:36:26 - INFO - Anomalía detectada - RUT_DIGITO_INVALIDO: 21 incidentes
+2026-05-19 22:36:26 - INFO - Anomalía detectada - FECHA_ATENCION_FUTURA: 1 incidentes
+2026-05-19 22:36:26 - INFO - Anomalía detectada - CODIGO_CIE10_NO_EXISTE: 1 incidentes
+2026-05-19 22:36:26 - INFO - Anomalía detectada - CODIGO_MINSAL_FORMATO_INVALIDO: 1 incidentes
+2026-05-19 22:36:26 - INFO - Transacción de CUARENTENA finalizada en BD Oracle.
