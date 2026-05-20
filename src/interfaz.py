@@ -55,18 +55,18 @@ class AppHospital(ctk.CTk):
         os.environ["TNS_ADMIN"] = wallet_dir
         
         # 4. Credenciales de producción en la nube
-        usuario = "ADMIN"
-        clave = "Pax.,ytrG231"
+        DB_USER = os.getenv("DB_USER", "ADMIN")
+        DB_PASSWORD = os.getenv("DB_PASSWORD")
         dsn_nube = "pipelinehibridohospital_high"
 
         # Conexión nativa robusta en modo Thin para la nube
         return oracledb.connect(
-            user=usuario,
-            password=clave,
+            user=DB_USER,
+            password=DB_PASSWORD,
             dsn=dsn_nube,
             config_dir=wallet_dir,
             wallet_location=wallet_dir,
-            wallet_password=clave  # Usamos la misma contraseña de la base de datos
+            wallet_password=DB_PASSWORD  # Usamos la misma contraseña de la base de datos
         )
 
     def inicializar_tablas_hospital(self):

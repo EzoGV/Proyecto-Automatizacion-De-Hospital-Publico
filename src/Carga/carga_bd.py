@@ -40,29 +40,29 @@ logging.getLogger().addHandler(console_handler)
 
 # ── CONEXIÓN ORACLE SEGURA ───────────────────────────────────────────────────
 def get_connection():
-    DB_USER = os.getenv("DB_USER")
+    # Ruta a la wallet (relativa a la raíz del proyecto)
+    raiz = Path(__file__).resolve().parent.parent.parent
+    wallet_dir = str(raiz / "wallet")
+
+    os.environ["TNS_ADMIN"] = wallet_dir
+
+    DB_USER = os.getenv("DB_USER", "ADMIN")
     DB_PASSWORD = os.getenv("DB_PASSWORD")
-    DB_HOST = os.getenv("DB_HOST", "127.0.0.1")
-    DB_PORT = os.getenv("DB_PORT", "1521")
-    DB_SERVICE = os.getenv("DB_SERVICE", "FREEPDB1") 
-    
-    if not DB_USER or not DB_PASSWORD:
-        raise ValueError("❌ ERROR: Las credenciales del .env están vacías.")
-        
-    try:
-        connection = oracledb.connect(
-            user=DB_USER, 
-            password=DB_PASSWORD, 
-            host=DB_HOST,
-            port=DB_PORT,
-            service_name=DB_SERVICE
-        )
-        logging.info(f"Conexión exitosa a Oracle en {DB_HOST}:{DB_PORT} (Servicio: {DB_SERVICE})")
-        return connection
-    except Exception as e:
-        logging.error(f"Error crítico al conectar a Oracle: {e}")
-        print("❌ Falla de conexión a BD. Verifica tu Docker y el archivo .env.")
-        raise e
+
+    if not DB_PASSWORD:
+        raise ValueError("❌ ERROR: DB_PASSWORD no configurada en .env")
+
+    connection = oracledb.connect(
+        user=DB_USER,
+        password=DB_PASSWORD,
+        dsn="pipelinehibridohospital_high",  # mismo DSN que interfaz.py
+        config_dir=wallet_dir,
+        wallet_location=wallet_dir,
+        wallet_password=DB_PASSWORD
+    )
+
+    logging.info(f"Conexión exitosa a Oracle Cloud (OCI) como {DB_USER}")
+    return connection
 
 # ── MOTOR DE CARGA TRANSACCIONAL ────────────────────────────────────────────
 def iniciar_carga():

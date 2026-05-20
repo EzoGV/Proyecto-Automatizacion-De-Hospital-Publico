@@ -5185,3 +5185,391 @@ Help: https://docs.oracle.com/error-help/db/ora-00942/
 Help: https://docs.oracle.com/error-help/db/ora-00942/
 2026-05-20 02:26:16 - INFO - Proceso de Carga finalizado. Insertados OK: 0 | Errores BD: 188
 2026-05-20 02:26:16 - INFO - === FIN DE ETAPA 4: CARGA A BASE DE DATOS ===
+2026-05-20 02:34:12 - INFO - === INICIO DE ETAPA 4: CARGA DE DATOS A BASE DE DATOS ===
+2026-05-20 02:34:12 - INFO - Archivo detectado. Preparando inserción de 188 atenciones.
+2026-05-20 02:34:12 - INFO - Conexión exitosa a Oracle en 127.0.0.1:1521 (Servicio: FREEPDB1)
+2026-05-20 02:34:12 - INFO - \u23f3 Insertando datos en Oracle... Total a procesar: 188
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 702f931d-86aa-42e5-8486-1311faaf2fb5. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 9035258e-c8dc-43cb-bdd9-fa1944598973. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion c22cc698-16cd-428f-839b-094df2c52213. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 0a2d7691-fdc7-4db7-9d79-97b79db186fb. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion e0c9c001-1f15-4760-8b0f-12b2be554b7e. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion c69d4a5b-785b-497e-a7b1-c91026d66c91. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion d6d17ff9-195f-43f4-903e-bd6e8d4c0bdb. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion ecd45376-0710-43fb-a3b0-a9e730798fce. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion d0082454-49a6-4634-8a6f-a26dab6a7561. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion c46dd8d9-c20f-417c-8d6d-713236822cbe. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion e56ca76a-d8f5-4685-8020-e915a275a854. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 30037c36-e538-415f-a7d7-bf521f820e48. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 01400c3b-89e9-46b2-9dca-2dfa3dd95a9c. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 0db4ff94-14a1-488b-9d69-21bb4add7c5a. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion e96024fe-ed6a-4888-8bfb-0ad242789681. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 28b053fc-53ef-466d-aff0-a989dd62064b. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion aad92a76-b378-43b2-902e-9725574ce2f4. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 84fbbf9f-7f3c-4fbe-8602-0e0a197f2547. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion cf0324f8-bc41-4391-afbf-884389bafb0f. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion fcb6658d-129f-4297-b7c2-fe2bc1dbb61f. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion fbc2c684-f0d2-4c44-8f0d-6154e2e05e29. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 234083b4-3b49-4e20-91c5-2fddadc2978f. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion e24666ec-56b4-4b99-8486-c7fba1480546. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 17c40b3b-40b2-4e3d-b20c-21491aaeb768. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 72ce043f-bf11-4d49-b2c9-c1109ab21ca6. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 9da2d3d5-a0eb-4d08-b273-6c496a761b68. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 755620c7-05fa-41ee-9d43-a488445b0dff. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion fc8b60f2-e637-4a2c-a208-6bb47b26d818. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion df63bebb-afc6-4c8c-80f1-f3f377d2dc31. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 080238ce-d375-471c-b1c5-bd9f626b2e47. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 1bce6f6d-9638-4bbe-bc53-c726a6e861fc. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 28047ec7-fa02-4ed2-991e-74529e62be8f. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 0c2f1326-962d-45e6-b4b1-bd0ca4ed2499. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion f3af2f3f-be8b-48cc-9d34-e4b3526d50ef. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion c806c106-b60c-49a5-86b5-875928bdf9f5. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion dbe75067-8398-4add-9910-185eaf66df6d. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 20fda828-46d9-489d-b114-f7618955351b. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 60308f0a-a011-43c5-9978-981ac3d4e314. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion f48bcd7c-5ce8-40d7-b067-6c564e6aa29b. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 140d76a3-3a36-45b0-9595-9521a30536a7. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion e7714745-5845-44ff-a700-7359739d675a. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion d7c0793e-b6fd-4de2-a46d-8b0db7c8dcce. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion dda0ddf3-114e-49bf-bbe2-11ad9bdb5e3a. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion f3e5e80a-bd8a-418b-8bbe-d4de1c8d66e2. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 2606f3a5-ffa6-4b91-9f0c-1b4e7ee3406b. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion dc66cc6a-9d3b-4692-b54a-4b5030657802. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion f1831ad6-4fdc-4f00-a2cd-0da3a9afc058. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion c0cd4495-4c8b-40dd-adfe-43e26aa4164a. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 6de4866e-c3ea-4778-b232-9b75804e8781. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 5492c26a-9151-4646-9fc7-f392403506a6. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 8d8ed520-9795-464d-9cda-c0ca4286d3dd. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 2ddf1e3e-a83e-4ed0-b903-536b696b0189. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion bcb17ca8-820e-4e69-9c7f-48ac47bf01c6. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 83794592-c68f-4938-a21c-21b60677bafa. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 9a6d0071-c8cb-48c0-bca8-29714d058d17. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 41879a40-bc58-46a5-8f41-a54172707fe2. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion dbe4a015-39b1-493b-ad0c-20dd74820aae. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 2b55f8bd-32c6-4b47-8208-9e6324dc882b. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 8997978d-08ce-48b5-886a-6f08882b7be0. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion b08fe7ac-d2d7-4c50-9cb5-932ffd2d9191. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion a3840569-9597-4853-b12c-265092c06e08. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion ee690b18-9e87-4c67-8986-c9b997bb8625. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 7b2f11a7-179a-4222-b21d-4516a2defa4c. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 70f83dbd-fd17-4589-b5f1-8455ce657621. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 3e329c68-43e1-43a4-99a7-156a29656746. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 88eb498d-7339-4226-a1e6-37e618fc8f14. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion d2c4cc64-022b-43f4-bb69-8fe75580b0d2. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 8f80105b-9295-4516-ac03-144c82ea1909. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 6f63fd42-ee8b-48f4-84d3-1679bff8f603. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 4c936633-68fc-4853-8c40-71fb69542fb3. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 53ab43ce-62d8-41cc-94bf-20069ea82e73. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 0678e65f-9802-420b-8521-f5b57057b399. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion dcab3d49-ce40-450e-9956-d5e2dc860caa. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 606281ab-517f-4778-a45d-be6c8a32de14. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 9113f002-ef32-48c8-91b9-73d3e65be9ce. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion c98c7f1f-2ec8-491e-ae05-76624e7443a8. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion b630d0ae-2e1e-4317-8ed1-6e6dcbe4b92d. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 492194f1-8581-4202-b49b-5917b9c576b1. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 99601a21-a6fc-462a-a7c6-4252c9b7bf59. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion d485a342-d1d6-4b5d-81e2-4cec527b054d. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 98c4247e-b07f-46ab-8119-549e6b8db05c. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion e06d89ba-0f47-4874-be30-bc86372d57f9. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 83383676-9433-4477-b3c6-a49c484e08af. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 773eb0e3-8d1d-486e-bea1-29f2620d8f52. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion d53accff-c727-42b2-8e84-e060f0e7a9ec. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 23eedf06-9dcd-4f76-89f5-f1dd07122c02. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion fb26b89a-a17f-4f51-a9d0-205721569aea. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion dbde5ca5-4a34-4cc5-a04a-68bc1a9ed8cc. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 3b35925e-aeb4-4394-8fd6-900cd7a5657c. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 563641f8-b9ae-4f6a-926f-00cc92cfd345. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion bddd2b08-6381-4bde-8959-f5bfbfa18fad. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion cbd585d3-a18a-4714-b560-ecc16d080684. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 61c111c0-4baa-4a42-8448-2421b6a8d6d7. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion dcb09dab-379a-4341-a058-9c7bafda7bab. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion a5d459de-40d4-4a91-a6f7-e5df9a3d0538. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 88119f96-fb33-49ec-8d97-6de26c2676d8. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 78e7e9a4-e275-497e-9b27-57d10b86a439. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 2c7b5e54-1008-4466-b31c-4fc02e63dbfd. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 9467c02a-f5b6-4f88-9c06-6b97dae6ef73. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 808185bd-dc57-4b91-b2fb-1efe058ee2d3. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 64e17b8c-be3f-49ce-9449-5a40daf8c117. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 3c19275d-9c94-44e9-b4be-b5b0a8305562. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion bf0c34b9-c844-4815-af09-067f475de77d. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 46377af6-9849-4a35-8ce9-e783084b6e79. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion b60ce62e-8bb7-4471-8e15-3c246e0844cf. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion a6173f8b-9196-4d72-bbfa-13302ee2e9c8. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion ade5aec6-8ba9-4676-874c-bdcfb337f92c. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion d58aaead-2c84-43c2-8ebb-2f907b0fb91b. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion a8b801d6-889a-4f85-862b-037eb8175f02. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 945b5838-a508-4260-8cc0-b3ce03df5eec. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 4411a82a-2105-4d8d-a9c9-fbd7b3cb1089. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 7e1793b3-fd44-41d3-b75a-72923561757d. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion b4642b22-c204-4ea1-90b6-84c7243a86d9. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 442976fd-bcab-4e5f-9763-359b5baabf2f. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 90e2130f-8cdf-4203-a2b3-3e8a47013c8e. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 4728eff9-0e37-4ab5-bd13-3cdcdca95b19. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 24e529c1-9107-4ab5-b49f-09ce515d7ab7. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 3b04ab4a-156c-4677-8f50-dcc0b8b5eb40. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 3944caf1-0d55-4b1b-b0fe-ef42f8ce5642. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 55a06421-b597-49d4-b731-fbee1dacff2f. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion a340ec30-cd08-4a3b-b8d1-8b5a2a3359f3. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 9ef9a5d4-2dfd-4e32-8c9a-18f2f1064eed. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 12f3973e-e7ba-4ff6-9358-f245600f9405. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion error-huerfano-123456789. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 4ff19bbc-ce5a-4587-9362-0fd95fb5e73a. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 50ba1819-a18e-4ab8-911f-b709a82beb48. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 6e50ca63-4256-4b1c-9bbb-63549a7e4eba. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 1d2fd8c1-4224-4fa6-9bdc-4443891cc2c1. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion d974e61c-1a0d-46ad-826a-1268aae49085. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 09501d79-d1e5-4e78-86b6-44aac28f7f29. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 740c61c5-b5e9-49b7-a571-be351d963350. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 4ff575bd-22d2-4b62-9403-7139b6dac47a. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 508d8c4e-d9ed-4be6-9755-8c20bb255427. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 7c0fdff7-95e7-4feb-8911-4cf917509de3. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion ff8044fb-ee86-463f-8aa7-bf969351c7ab. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion bcac8a58-199e-4eb9-a5df-682a61251071. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion d1ad4da5-6c97-47cd-9869-717bf788e000. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 54bf65de-f3a8-4d6a-86bb-dd8f5f21f2ec. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 423131e5-bf6b-4e44-9ecf-8e6949142c36. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion b0169d4c-bd51-40b6-994c-dbd82553de7f. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 28647c14-efdb-4000-b405-8f07dbf54768. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion f841a0f1-ef52-45fa-8088-5ae2ed29e476. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion c227adec-3370-4ddb-ab4b-5e30c1aa9174. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion b1c4e874-3417-43d7-afa8-e60b52f249b0. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 655d7bb2-bbd3-4886-87ec-ffe7820c77aa. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion a541f523-b1a7-4ca2-995f-80c4d313153c. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion fe7a0fdf-9eec-47d9-b00d-bad0c7c4aadc. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion aa62f42f-c8c4-4f20-bcf4-51c5e57a923d. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion fd39fd26-f1ce-43cc-8a48-62ad817837b9. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 6b144655-c911-4137-9ba5-5942de9a2c29. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion c3d74a39-9e0b-4e06-92ec-7648e5430654. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 5b8451ed-719d-42dc-ba53-ad536f333f72. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 49ed6bb4-2d61-4c3f-b1f8-cd3a88cee4bb. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 265c7e44-d878-4962-9096-fd984738c0a8. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 7d256c53-3bbb-46e4-bd77-3dd4d7e7f48f. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion f2eaf855-3ca9-414a-9426-8bcfcff173e9. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 0c31c59d-0247-494f-a905-33472701cd2b. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion dfbb3167-95c2-4131-9efb-e85326742bfa. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion feceba3d-5130-40d5-aa6f-88de09a01d46. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion b66d0638-4224-432a-a9a9-ee72a675eef0. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 0856b85d-fbc5-4642-b784-e8dbdf096ad2. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion a305cd6f-97fb-438d-bf29-0ba5216abc13. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion bda6392b-cb51-400c-b997-400338c68ee8. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 9ce52c7a-096f-4dd1-87a7-d2eebf7499ca. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 13238cc4-d6bf-4852-b179-440430415c62. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 5170fa77-f146-4664-a7fc-9c562eee6b28. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion e13d42f2-69c2-4db4-bed4-bb1ff6a455b4. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 518ef608-8780-4790-8ad1-8258de3aa0ac. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion a63d300c-025c-4cad-8d00-7866581a9779. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 3f7c00a9-300d-4c80-a8f8-d29632b8ea57. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion a1db2dd5-82b0-4b26-906b-25b02913d0a8. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 15ce5107-9733-4f45-8d80-fab6a968de9d. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion e788fd5c-ef84-4ff8-8986-201d52188726. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 5204cf32-1c2d-46fe-a593-8afba1e23f96. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion ca04c1fa-129f-4666-9e50-718f42a3fe09. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 6ee1bdb1-1454-4cc3-94b3-f700524256f7. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion bf3612d6-6f25-4638-a1bf-8304bcb31487. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 76fdb906-89d0-44b7-85e0-090335a74a50. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 151257d4-a4da-4af5-a04e-39cd667924a2. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 1602b7cf-5dae-495f-80a7-deaeea3297f6. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 3ef9077d-8454-4352-95c6-405649d13793. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion d3eef439-803b-47cb-a9cb-832dba399ff7. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion bd989dab-ed01-4fc0-82ce-920b9de27452. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 4cb639fb-93ac-448a-850b-0a7d261a49e1. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion fae50b81-fc8b-4290-af88-64af3a60bf2a. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 8cc0a8b3-4d01-4033-ab6e-73c2d63a804c. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion cc5150f3-4c3d-4c35-93fb-cc658bace642. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - ERROR - Rollback para id_atencion 451c3855-cc6f-49bb-9174-4604c67907cb. Causa: ORA-00942: table or view "ADMIN"."ATENCIONES" does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-20 02:34:12 - INFO - Proceso de Carga finalizado. Insertados OK: 0 | Errores BD: 188
+2026-05-20 02:34:12 - INFO - === FIN DE ETAPA 4: CARGA A BASE DE DATOS ===
+2026-05-20 02:41:35 - INFO - === INICIO DE ETAPA 4: CARGA DE DATOS A BASE DE DATOS ===
+2026-05-20 02:41:35 - INFO - Archivo detectado. Preparando inserción de 188 atenciones.
+2026-05-20 02:41:35 - INFO - Conexión exitosa a Oracle Cloud (OCI) como ADMIN
+2026-05-20 02:41:35 - INFO - \u23f3 Insertando datos en Oracle... Total a procesar: 188
+2026-05-20 02:41:38 - INFO - Proceso de Carga finalizado. Insertados OK: 188 | Errores BD: 0
+2026-05-20 02:41:38 - INFO - === FIN DE ETAPA 4: CARGA A BASE DE DATOS ===
