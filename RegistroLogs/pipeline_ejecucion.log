@@ -5621,3 +5621,65 @@ Help: https://docs.oracle.com/error-help/db/ora-00942/
 [WinError 10061] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
 2026-05-20 17:27:27 - ERROR - Error crítico en validación: DPY-6005: cannot connect to database (CONNECTION_ID=sGJ50lh3oeB4oUtz7Duozg==).
 [WinError 10061] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+2026-05-20 17:35:04 - INFO - === INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-20 17:35:04 - INFO - Dataset cargado desde Processed: 210 registros a validar.
+2026-05-20 17:35:04 - INFO - Conexión exitosa a Oracle Cloud (OCI) como ADMIN
+2026-05-20 17:35:04 - INFO - Tabla CUARENTENA ya existe en BD, continuando.
+2026-05-20 17:35:04 - INFO - Iniciando escaneo de Reglas de Negocio registro por registro...
+2026-05-20 17:35:04 - WARNING - Fila 1 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:35:04 - ERROR - Error crítico en validación: ORA-00904: "MOTIVO": invalid identifier
+Help: https://docs.oracle.com/error-help/db/ora-00904/
+2026-05-20 17:39:50 - INFO - === INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-20 17:39:50 - INFO - Dataset cargado desde Processed: 210 registros a validar.
+2026-05-20 17:39:50 - INFO - Conexión exitosa a Oracle Cloud (OCI) como ADMIN
+2026-05-20 17:39:50 - INFO - Tabla CUARENTENA verificada/creada exitosamente en BD.
+2026-05-20 17:39:50 - INFO - Iniciando escaneo de Reglas de Negocio registro por registro...
+2026-05-20 17:39:50 - WARNING - Fila 1 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 8 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 12 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 13 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 15 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 25 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 45 enviada a cuarentena. Motivo(s): FECHA_ATENCION_FUTURA
+2026-05-20 17:39:50 - WARNING - Fila 59 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 61 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 69 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 92 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 96 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 98 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 116 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 129 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 132 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 138 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 160 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 176 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 182 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 184 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - WARNING - Fila 195 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-20 17:39:50 - INFO - Separando registros Válidos e Inválidos...
+2026-05-20 17:39:50 - INFO - --- INICIO KPI: COMPLETITUD POR COLUMNA ---
+2026-05-20 17:39:50 - INFO - Completitud OK en [rut_paciente]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [nombre_completo]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [fecha_nacimiento]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [sexo]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [prevision]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [id_atencion]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [fecha_atencion]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [tipo_atencion]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [codigo_cie10]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [codigo_minsal]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [dosis_prescrita]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [alergia_principio]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [id_examen]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [codigo_examen]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [resultado_valor]: 100.00%
+2026-05-20 17:39:50 - INFO - Completitud OK en [unidad_medida]: 100.00%
+2026-05-20 17:39:50 - INFO - --- INICIO KPI: TASA DE ERROR ---
+2026-05-20 17:39:50 - INFO - Registros válidos procesados: 188 (89.52%)
+2026-05-20 17:39:50 - INFO - Registros con error (Cuarentena): 22 (10.48%)
+2026-05-20 17:39:50 - INFO - --- INICIO KPI: AUDITORÍA DE ERRORES ---
+2026-05-20 17:39:50 - INFO - Anomalía detectada - RUT_DIGITO_INVALIDO: 21 incidentes
+2026-05-20 17:39:50 - INFO - Anomalía detectada - FECHA_ATENCION_FUTURA: 1 incidentes
+2026-05-20 17:39:50 - INFO - Anomalía detectada - CODIGO_CIE10_NO_EXISTE: 1 incidentes
+2026-05-20 17:39:50 - INFO - Anomalía detectada - CODIGO_MINSAL_FORMATO_INVALIDO: 1 incidentes
+2026-05-20 17:39:50 - INFO - Transacción de CUARENTENA finalizada en BD Oracle.
