@@ -3,21 +3,37 @@ import pandas as pd
 import os
 import re
 import oracledb
+import sys
+import logging
+from pathlib import Path
 from datetime import datetime
 from dotenv import load_dotenv
 
+raiz_proyecto = Path(__file__).resolve().parent.parent
+sys.path.append(str(raiz_proyecto))
 # Cargar credenciales ocultas desde .env
 load_dotenv()
 
-# ── logger MEJORADO (DataOps) ──────────────────────────────────────────────
-from utils.logger import logger
-from utils.logger import ruta_logs
+# ── logging MEJORADO (DataOps) ──────────────────────────────────────────────
+ruta_logs = "./RegistroLogs"
+if not os.path.exists(ruta_logs):
+    os.makedirs(ruta_logs)
 
-console_handler = logger.StreamHandler()
-console_handler.setLevel(logger.INFO)
-console_formatter = logger.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%H:%M:%S')
+# Ahora sí le decimos al logging que guarde el archivo DENTRO de esa carpeta
+archivo_log = os.path.join(ruta_logs, 'pipeline_ejecucion.log')
+
+logging.basicConfig(
+    filename=archivo_log,
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%H:%M:%S')
 console_handler.setFormatter(console_formatter)
-logger.getLogger().addHandler(console_handler)
+logging.getLogger().addHandler(console_handler)
 
 # ── CONEXIÓN ORACLE SEGURA ──────────────────────────────────────────────────
 # ── CONEXIÓN ORACLE SEGURA ──────────────────────────────────────────────────
@@ -38,10 +54,10 @@ def get_connection():
             port=DB_PORT,
             service_name=DB_SERVICE
         )
-        logger.info(f"Conexión exitosa a Oracle en {DB_HOST} (Servicio: {DB_SERVICE})")
+        logging.info(f"Conexión exitosa a Oracle en {DB_HOST} (Servicio: {DB_SERVICE})")
         return connection
     except Exception as e:
-        logger.error(f"Error crítico al conectar a Oracle: {e}")
+        logging.error(f"Error crítico al conectar a Oracle: {e}")
         print("❌ Falla de conexión a BD. Verifica tu archivo .env y que Oracle esté corriendo.")
         raise e
 
@@ -65,12 +81,12 @@ def crear_tabla_cuarentena(connection):
         cursor = connection.cursor()
         cursor.execute(sql)
         connection.commit()
-        logger.info("Tabla CUARENTENA verificada/creada exitosamente en BD.")
+        logging.info("Tabla CUARENTENA verificada/creada exitosamente en BD.")
     except Exception as e:
         if "ORA-00955" in str(e):
-            logger.info("Tabla CUARENTENA ya existe en BD, continuando.")
+            logging.info("Tabla CUARENTENA ya existe en BD, continuando.")
         else:
-            logger.error(f"Error creando tabla CUARENTENA: {e}")
+            logging.error(f"Error creando tabla CUARENTENA: {e}")
             raise
 
 # ── FUNCIONES DE VALIDACIÓN ───────────────────────────────────────────────────
@@ -148,34 +164,34 @@ def insertar_cuarentena(cursor, id_registro, campo, valor, motivo):
     cursor.execute(sql, [str(id_registro), str(campo), str(valor), str(motivo)])
 
 def calcular_kpi_completitud(df):
-    logger.info("--- INICIO KPI: COMPLETITUD POR COLUMNA ---")
+    logging.info("--- INICIO KPI: COMPLETITUD POR COLUMNA ---")
     total_filas = len(df)
     for columna in df.columns:
         if columna == 'motivo_rechazo': continue 
         incompletos = df[columna].isna().sum() + (df[columna].astype(str).str.strip() == '').sum()
         completitud = ((total_filas - incompletos) / total_filas) * 100
         if completitud < 99.0:
-            logger.warning(f"Completitud BAJA en [{columna}]: {completitud:.2f}%")
+            logging.warning(f"Completitud BAJA en [{columna}]: {completitud:.2f}%")
         else:
-            logger.info(f"Completitud OK en [{columna}]: {completitud:.2f}%")
+            logging.info(f"Completitud OK en [{columna}]: {completitud:.2f}%")
 
 def calcular_kpi_errores(total, errores_filas):
-    logger.info("--- INICIO KPI: TASA DE ERROR ---")
+    logging.info("--- INICIO KPI: TASA DE ERROR ---")
     tasa_error = (errores_filas / total) * 100
-    logger.info(f"Registros válidos procesados: {total - errores_filas} ({100 - tasa_error:.2f}%)")
-    logger.info(f"Registros con error (Cuarentena): {errores_filas} ({tasa_error:.2f}%)")
+    logging.info(f"Registros válidos procesados: {total - errores_filas} ({100 - tasa_error:.2f}%)")
+    logging.info(f"Registros con error (Cuarentena): {errores_filas} ({tasa_error:.2f}%)")
 
 def calcular_kpi_auditoria(errores_detalle):
-    logger.info("--- INICIO KPI: AUDITORÍA DE ERRORES ---")
+    logging.info("--- INICIO KPI: AUDITORÍA DE ERRORES ---")
     conteo = {}
     for _, _, _, motivo in errores_detalle:
         conteo[motivo] = conteo.get(motivo, 0) + 1
     for motivo, cantidad in sorted(conteo.items(), key=lambda x: x[1], reverse=True):
-        logger.info(f"Anomalía detectada - {motivo}: {cantidad} incidentes")
+        logging.info(f"Anomalía detectada - {motivo}: {cantidad} incidentes")
 
 # ── MOTOR PRINCIPAL DE VALIDACIÓN ──────────────────────────────────────────────
 def iniciar_validacion():
-    logger.info("=== INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===")
+    logging.info("=== INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===")
 
     ruta_dataset = "./data/processed/dataset_hospitales_limpio.csv"
     ruta_validos = "./data/validated"
@@ -186,7 +202,7 @@ def iniciar_validacion():
     try:
         df = pd.read_csv(ruta_dataset)
         total = len(df)
-        logger.info(f"Dataset cargado desde Processed: {total} registros a validar.")
+        logging.info(f"Dataset cargado desde Processed: {total} registros a validar.")
         
         df['motivo_rechazo'] = ""
 
@@ -206,7 +222,7 @@ def iniciar_validacion():
         ids_examen_vistos    = set()
         indices_malos = set()
 
-        logger.info("Iniciando escaneo de Reglas de Negocio registro por registro...")
+        logging.info("Iniciando escaneo de Reglas de Negocio registro por registro...")
 
         for index, fila in df.iterrows():
             id_reg = fila['id_atencion']
@@ -282,14 +298,14 @@ def iniciar_validacion():
             if len(motivos_fila) > 0:
                 indices_malos.add(index)
                 df.at[index, 'motivo_rechazo'] = " | ".join(motivos_fila)
-                logger.warning(f"Fila {index} enviada a cuarentena. Motivo(s): {' | '.join(motivos_fila)}")
+                logging.warning(f"Fila {index} enviada a cuarentena. Motivo(s): {' | '.join(motivos_fila)}")
                 
                 # INSERCIÓN REAL EN BD ORACLE
                 for id_r, col, val, mot in errores_detalle[-len(motivos_fila):]:
                     insertar_cuarentena(cursor, id_r, col, val, mot)
 
         # SEPARACIÓN Y GUARDADO
-        logger.info("Separando registros Válidos e Inválidos...")
+        logging.info("Separando registros Válidos e Inválidos...")
         df_validos = df.drop(index=list(indices_malos)).drop(columns=['motivo_rechazo'])
         df_invalidos = df.loc[list(indices_malos)]
 
@@ -310,7 +326,7 @@ def iniciar_validacion():
         calcular_kpi_auditoria(errores_detalle)
         
         connection.commit()
-        logger.info("Transacción de CUARENTENA finalizada en BD Oracle.")
+        logging.info("Transacción de CUARENTENA finalizada en BD Oracle.")
 
         cursor.close()
         connection.close()
@@ -321,7 +337,7 @@ def iniciar_validacion():
             print(f"🔴 Rechazados (Cuarentena) en BD y en carpeta: {ruta_invalidos}")
 
     except Exception as e:
-        logger.error(f"Error crítico en validación: {e}")
+        logging.error(f"Error crítico en validación: {e}")
         print(f"❌ Ocurrió un error: {e}")
 
 if __name__ == "__main__":

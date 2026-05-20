@@ -2,9 +2,24 @@
 import pandas as pd
 import os
 import oracledb
+import logging
 from cryptography.fernet import Fernet
 from dotenv import load_dotenv, find_dotenv
 from pathlib import Path
+
+ruta_logs = "./RegistroLogs"
+if not os.path.exists(ruta_logs):
+    os.makedirs(ruta_logs)
+
+# Ahora sí le decimos al logging que guarde el archivo DENTRO de esa carpeta
+archivo_log = os.path.join(ruta_logs, 'pipeline_ejecucion.log')
+
+logging.basicConfig(
+    filename=archivo_log,
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
 # ── CARGA INTELIGENTE DEL ENVIROMENT (.env) ──────────────────────────────────
 ruta_env = find_dotenv()
@@ -14,15 +29,14 @@ else:
     raiz_proyecto = Path(__file__).resolve().parent.parent.parent
     load_dotenv(dotenv_path=raiz_proyecto / '.env')
 
-# ── logger MEJORADO (DataOps) ──────────────────────────────────────────────
-from utils.logger import logger
-from utils.logger import ruta_logs
+# ── logging MEJORADO (DataOps) ──────────────────────────────────────────────
 
-console_handler = logger.StreamHandler()
-console_handler.setLevel(logger.INFO)
-console_formatter = logger.Formatter('%(asctime)s - %(levelname)s - [CARGA] - %(message)s', datefmt='%H:%M:%S')
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_formatter = logging.Formatter('%(asctime)s - %(levelname)s - [CARGA] - %(message)s', datefmt='%H:%M:%S')
 console_handler.setFormatter(console_formatter)
-logger.getLogger().addHandler(console_handler)
+logging.getlogging().addHandler(console_handler)
 
 # ── CONEXIÓN ORACLE SEGURA ───────────────────────────────────────────────────
 def get_connection():
@@ -43,27 +57,27 @@ def get_connection():
             port=DB_PORT,
             service_name=DB_SERVICE
         )
-        logger.info(f"Conexión exitosa a Oracle en {DB_HOST}:{DB_PORT} (Servicio: {DB_SERVICE})")
+        logging.info(f"Conexión exitosa a Oracle en {DB_HOST}:{DB_PORT} (Servicio: {DB_SERVICE})")
         return connection
     except Exception as e:
-        logger.error(f"Error crítico al conectar a Oracle: {e}")
+        logging.error(f"Error crítico al conectar a Oracle: {e}")
         print("❌ Falla de conexión a BD. Verifica tu Docker y el archivo .env.")
         raise e
 
 # ── MOTOR DE CARGA TRANSACCIONAL ────────────────────────────────────────────
 def iniciar_carga():
-    logger.info("=== INICIO DE ETAPA 4: CARGA DE DATOS A BASE DE DATOS ===")
+    logging.info("=== INICIO DE ETAPA 4: CARGA DE DATOS A BASE DE DATOS ===")
     
     ruta_validos = "./data/validated/dataset_hospitales_validado.csv"
     
     if not os.path.exists(ruta_validos):
-        logger.error(f"No se encontró el archivo de validados: {ruta_validos}")
+        logging.error(f"No se encontró el archivo de validados: {ruta_validos}")
         print("❌ Error: No existe el archivo validado. Ejecuta la Etapa 3 primero.")
         return
     try:
         df = pd.read_csv(ruta_validos)
         total_registros = len(df)
-        logger.info(f"Archivo detectado. Preparando inserción de {total_registros} atenciones.")
+        logging.info(f"Archivo detectado. Preparando inserción de {total_registros} atenciones.")
 
         conn = get_connection()
         cursor = conn.cursor()
@@ -172,10 +186,10 @@ def iniciar_carga():
                 # ROLLBACK: Si algo falló (ej: examen sin tipo), se deshace todo para ese paciente
                 conn.rollback() 
                 errores_bd += 1
-                logger.error(f"Rollback para id_atencion {fila.get('id_atencion', '?')}. Causa: {row_error}")
+                logging.error(f"Rollback para id_atencion {fila.get('id_atencion', '?')}. Causa: {row_error}")
 
-        logger.info(f"Proceso de Carga finalizado. Insertados OK: {insertados_ok} | Errores BD: {errores_bd}")
-        logger.info("=== FIN DE ETAPA 4: CARGA A BASE DE DATOS ===")
+        logging.info(f"Proceso de Carga finalizado. Insertados OK: {insertados_ok} | Errores BD: {errores_bd}")
+        logging.info("=== FIN DE ETAPA 4: CARGA A BASE DE DATOS ===")
         
         print(f"\n✅ Etapa 4 Completada.")
         print(f"   📊 Registros procesados e insertados: {insertados_ok}/{total_registros}")
@@ -186,7 +200,7 @@ def iniciar_carga():
         conn.close()
 
     except Exception as e:
-        logger.error(f"Fallo general en la capa de ejecución de BD: {e}")
+        logging.error(f"Fallo general en la capa de ejecución de BD: {e}")
         print(f"❌ El proceso de carga falló de forma crítica. Error: {e}")
 
 if __name__ == "__main__":

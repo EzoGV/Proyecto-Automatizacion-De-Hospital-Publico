@@ -36,6 +36,7 @@ Actualmente, el entorno se encuentra **operativo**. Se ha utilizado Oracle datab
    pip install oracledb python-dotenv
    pip install customtkinter
    pip install cryptography 'Para cumplir con el cifrado AES-256'
+   pip install pandas
 
 4. **Comando para correr test unitario**
    ```bash   

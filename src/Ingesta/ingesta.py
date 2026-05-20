@@ -5,12 +5,23 @@ import logging
 from datetime import datetime
 
 # 1. CONFIGURACIÓN DE CARPETA DE LOGS (Mantenemos la trazabilidad)
-from utils.logger import logger
-from utils.logger import ruta_logs
+ruta_logs = "./RegistroLogs"
+if not os.path.exists(ruta_logs):
+    os.makedirs(ruta_logs)
+
+# Ahora sí le decimos al logging que guarde el archivo DENTRO de esa carpeta
+archivo_log = os.path.join(ruta_logs, 'pipeline_ejecucion.log')
+
+logging.basicConfig(
+    filename=archivo_log,
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
 # Primero aseguramos que la carpeta RegistroLogs exista
 def iniciar_ingesta():
-    logger.info("=== INICIO DE ETAPA 1: INGESTA DE DATOS ===")
+    logging.info("=== INICIO DE ETAPA 1: INGESTA DE DATOS ===")
     
     # Definición de rutas (usando el punto para que sea ruta relativa)
     ruta_origen = "data/origen" 
@@ -54,7 +65,7 @@ def iniciar_ingesta():
                     path_destino_final
                 )
                 
-                logger.info(
+                logging.info(
                     f"Captura exitosa: {nombre_archivo} | "
                     f"Registros: {cantidad_filas} | "
                     f"Destino: {ruta_destino}"
@@ -69,18 +80,18 @@ def iniciar_ingesta():
 
             except Exception as e:
 
-                logger.error(
+                logging.error(
                     f"Error procesando "
                     f"{nombre_archivo}: {e}"
                 )
         else:
 
-            logger.warning(
+            logging.warning(
                 f"Archivo no encontrado en origen: "
                 f"{nombre_archivo}"
             )
 
-    logger.info(
+    logging.info(
         f"=== FIN DE INGESTA: "
         f"{total_registros_dia} registros totales capturados ==="
     )
