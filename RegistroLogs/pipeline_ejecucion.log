@@ -5573,3 +5573,51 @@ Help: https://docs.oracle.com/error-help/db/ora-00942/
 2026-05-20 02:41:35 - INFO - \u23f3 Insertando datos en Oracle... Total a procesar: 188
 2026-05-20 02:41:38 - INFO - Proceso de Carga finalizado. Insertados OK: 188 | Errores BD: 0
 2026-05-20 02:41:38 - INFO - === FIN DE ETAPA 4: CARGA A BASE DE DATOS ===
+2026-05-20 16:47:26 - INFO - === INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-20 16:47:26 - INFO - Dataset cargado desde Processed: 210 registros a validar.
+2026-05-20 16:47:28 - ERROR - Error crítico al conectar a Oracle: DPY-6005: cannot connect to database (CONNECTION_ID=fiAJK8u8ICruWt1SoD2GLA==).
+[WinError 10061] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+2026-05-20 16:47:28 - ERROR - Error crítico en validación: DPY-6005: cannot connect to database (CONNECTION_ID=fiAJK8u8ICruWt1SoD2GLA==).
+[WinError 10061] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+2026-05-20 16:48:30 - INFO - === INICIO DE ETAPA 1: INGESTA DE DATOS ===
+2026-05-20 16:48:30 - INFO - Captura exitosa: datos_hospital_san_jose.csv | Registros: 106 | Destino: ./data/raw
+2026-05-20 16:48:30 - ERROR - Error procesando datos_hospital_regional_sur.xlsx: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 16:48:30 - INFO - === FIN DE INGESTA: 106 registros totales capturados ===
+2026-05-20 16:48:45 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 16:48:45 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 16:48:54 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 16:48:54 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 16:51:04 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 16:51:04 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 17:06:12 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 17:06:12 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 17:06:33 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 17:06:33 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 17:11:07 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 17:11:07 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 17:14:12 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 17:14:12 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 17:15:03 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 17:15:03 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 17:15:23 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 17:15:23 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 17:15:36 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 17:15:36 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 17:16:40 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 17:16:40 - ERROR - Error crítico en la limpieza: `Import openpyxl` failed.  Use pip or conda to install the openpyxl package.
+2026-05-20 17:25:02 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 17:25:02 - INFO - Lectura exitosa. Registros consolidados: 211
+2026-05-20 17:25:02 - INFO - Limpieza: 1 filas duplicadas eliminadas.
+2026-05-20 17:25:02 - INFO - Exportación exitosa a CSV y Excel con 210 registros finales.
+2026-05-20 17:25:02 - INFO - === FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===
+2026-05-20 17:26:22 - INFO - === INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACION ===
+2026-05-20 17:26:22 - INFO - Lectura exitosa. Registros consolidados: 211
+2026-05-20 17:26:22 - INFO - Limpieza: 1 filas duplicadas eliminadas.
+2026-05-20 17:26:22 - INFO - Exportacion exitosa a CSV y Excel con 210 registros finales.
+2026-05-20 17:26:22 - INFO - === FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACION ===
+2026-05-20 17:27:25 - INFO - === INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-20 17:27:25 - INFO - Dataset cargado desde Processed: 210 registros a validar.
+2026-05-20 17:27:27 - ERROR - Error crítico al conectar a Oracle: DPY-6005: cannot connect to database (CONNECTION_ID=sGJ50lh3oeB4oUtz7Duozg==).
+[WinError 10061] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+2026-05-20 17:27:27 - ERROR - Error crítico en validación: DPY-6005: cannot connect to database (CONNECTION_ID=sGJ50lh3oeB4oUtz7Duozg==).
+[WinError 10061] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión

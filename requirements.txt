@@ -1,0 +1,6 @@
+pandas
+openpyxl
+cryptography
+python-dotenv
+oracledb
+customtkinter
