@@ -62,6 +62,20 @@ def iniciar_limpieza():
         total_sin_duplicados = len(df_consolidado)
         duplicados_eliminados = total_inicial - total_sin_duplicados
         logging.info(f"Limpieza: {duplicados_eliminados} filas duplicadas eliminadas.")
+
+
+        # KPI: DUPLICADOS
+        tasa_duplicados = (duplicados_eliminados / total_inicial) * 100
+        logging.info("--- KPI: DUPLICADOS ---")
+        logging.info(f"Registros antes de limpieza: {total_inicial}")
+        logging.info(f"Duplicados eliminados: {duplicados_eliminados} ({tasa_duplicados:.2f}%)")
+        logging.info(f"Registros finales: {total_sin_duplicados}")
+        logging.info("--- FIN KPI: DUPLICADOS ---")
+        print("--- KPI: DUPLICADOS ---")
+        print(f"Registros antes de limpieza: {total_inicial}")
+        print(f"Duplicados eliminados: {duplicados_eliminados} ({tasa_duplicados:.2f}%)")
+        print(f"Registros finales: {total_sin_duplicados}")
+        print("--- FIN KPI: DUPLICADOS ---")
         
         # 3. TRATAMIENTO DE NULOS Y NORMALIZACIÓN DE NOMBRES
         df_consolidado['nombre_completo'] = df_consolidado['nombre_completo'].fillna('DESCONOCIDO')
