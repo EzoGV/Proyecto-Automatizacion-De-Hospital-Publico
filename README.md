@@ -33,6 +33,7 @@ Actualmente, el entorno se encuentra **operativo**. Se ha utilizado Oracle datab
 3. **Librerias y levantar entorno virtual**
    ```bash
    python -m venv venv
+   python -m pip install openpyxl
    pip install oracledb python-dotenv
    pip install customtkinter
    pip install cryptography 'Para cumplir con el cifrado AES-256'

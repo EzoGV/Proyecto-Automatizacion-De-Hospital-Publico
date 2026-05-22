@@ -38,28 +38,29 @@ logging.getLogger().addHandler(console_handler)
 # ── CONEXIÓN ORACLE SEGURA ──────────────────────────────────────────────────
 # ── CONEXIÓN ORACLE SEGURA ──────────────────────────────────────────────────
 def get_connection():
-    """Establece la conexión a Oracle usando variables de entorno (.env) en Modo Thin"""
-    DB_USER = os.getenv("DB_USER")
+    # Ruta a la wallet (relativa a la raíz del proyecto)
+    raiz = Path(__file__).resolve().parent.parent.parent
+    wallet_dir = str(raiz / "wallet")
+
+    os.environ["TNS_ADMIN"] = wallet_dir
+
+    DB_USER = os.getenv("DB_USER", "ADMIN")
     DB_PASSWORD = os.getenv("DB_PASSWORD")
-    DB_HOST = os.getenv("DB_HOST", "localhost")
-    DB_PORT = os.getenv("DB_PORT", "1521")
-    DB_SERVICE = os.getenv("DB_SERVICE", "XE")
-    
-    try:
-        # Al pasar host, port y service_name por separado, oracledb usa automáticamente el modo THIN
-        connection = oracledb.connect(
-            user=DB_USER, 
-            password=DB_PASSWORD, 
-            host=DB_HOST,
-            port=DB_PORT,
-            service_name=DB_SERVICE
-        )
-        logging.info(f"Conexión exitosa a Oracle en {DB_HOST} (Servicio: {DB_SERVICE})")
-        return connection
-    except Exception as e:
-        logging.error(f"Error crítico al conectar a Oracle: {e}")
-        print("❌ Falla de conexión a BD. Verifica tu archivo .env y que Oracle esté corriendo.")
-        raise e
+
+    if not DB_PASSWORD:
+        raise ValueError("❌ ERROR: DB_PASSWORD no configurada en .env")
+
+    connection = oracledb.connect(
+        user=DB_USER,
+        password=DB_PASSWORD,
+        dsn="pipelinehibridohospital_high",  # mismo DSN que interfaz.py
+        config_dir=wallet_dir,
+        wallet_location=wallet_dir,
+        wallet_password=DB_PASSWORD
+    )
+
+    logging.info(f"Conexión exitosa a Oracle Cloud (OCI) como {DB_USER}")
+    return connection
 
 # ── LISTAS BLANCAS ────────────────────────────────────────────────────────────
 SEXOS_VALIDOS       = {'M', 'F'}
@@ -73,7 +74,7 @@ def crear_tabla_cuarentena(connection):
             id_registro          VARCHAR2(36),
             campo_fallido        VARCHAR2(50),
             valor_encontrado     VARCHAR2(200),
-            motivo               VARCHAR2(100),
+            motivo_rechazo       VARCHAR2(100),
             timestamp_validacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """
@@ -156,12 +157,12 @@ def validar_codigo_minsal(codigo):
     return bool(re.match(r'^M\d{3}$', str(codigo).strip()))
 
 # ── MOTOR DE KPIs Y BD ────────────────────────────────────────────────────────
-def insertar_cuarentena(cursor, id_registro, campo, valor, motivo):
+def insertar_cuarentena(cursor, id_registro, campo, valor, motivo_rechazo):
     sql = """
-        INSERT INTO CUARENTENA (id_registro, campo_fallido, valor_encontrado, motivo)
+        INSERT INTO CUARENTENA (id_registro, campo_fallido, valor_encontrado, motivo_rechazo)
         VALUES (:1, :2, :3, :4)
     """
-    cursor.execute(sql, [str(id_registro), str(campo), str(valor), str(motivo)])
+    cursor.execute(sql, [str(id_registro), str(campo), str(valor), str(motivo_rechazo)])
 
 def calcular_kpi_completitud(df):
     logging.info("--- INICIO KPI: COMPLETITUD POR COLUMNA ---")
@@ -184,10 +185,10 @@ def calcular_kpi_errores(total, errores_filas):
 def calcular_kpi_auditoria(errores_detalle):
     logging.info("--- INICIO KPI: AUDITORÍA DE ERRORES ---")
     conteo = {}
-    for _, _, _, motivo in errores_detalle:
-        conteo[motivo] = conteo.get(motivo, 0) + 1
-    for motivo, cantidad in sorted(conteo.items(), key=lambda x: x[1], reverse=True):
-        logging.info(f"Anomalía detectada - {motivo}: {cantidad} incidentes")
+    for _, _, _, motivo_rechazo in errores_detalle:
+        conteo[motivo_rechazo] = conteo.get(motivo_rechazo, 0) + 1
+    for motivo_rechazo, cantidad in sorted(conteo.items(), key=lambda x: x[1], reverse=True):
+        logging.info(f"Anomalía detectada - {motivo_rechazo}: {cantidad} incidentes")
 
 # ── MOTOR PRINCIPAL DE VALIDACIÓN ──────────────────────────────────────────────
 def iniciar_validacion():

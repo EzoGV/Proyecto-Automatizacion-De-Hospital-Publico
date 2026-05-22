@@ -1,6 +1,8 @@
 import pandas as pd
 import os
 import logging
+
+
 # 1. CONFIGURACIÓN DE CARPETA DE LOGS (Mantenemos la trazabilidad)
 
 ruta_logs = "./RegistroLogs"
@@ -35,7 +37,7 @@ def limpiar_rut(rut):
     return f"{rut_str[:-1]}-{rut_str[-1]}"
 
 def iniciar_limpieza():
-    logging.info("=== INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===")
+    logging.info("=== INICIO DE ETAPA 2: LIMPIEZA Y TRANSFORMACION ===")
     
     ruta_raw = "./data/raw"
     ruta_processed = "./data/processed"
@@ -91,8 +93,8 @@ def iniciar_limpieza():
         # Generar Excel (ideal para humanos/trazabilidad)
         df_consolidado.to_excel(archivo_salida_excel, index=False, sheet_name='Datos_Limpios')
         
-        logging.info(f"Exportación exitosa a CSV y Excel con {total_sin_duplicados} registros finales.")
-        logging.info("=== FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACIÓN ===")
+        logging.info(f"Exportacion exitosa a CSV y Excel con {total_sin_duplicados} registros finales.")
+        logging.info("=== FIN DE ETAPA 2: LIMPIEZA Y TRANSFORMACION ===")
         
         print(f"Etapa 2 Completada: Limpieza aplicada.")
         print(f"Archivos generados en la carpeta '{ruta_processed}':")
@@ -100,8 +102,8 @@ def iniciar_limpieza():
         print(f"    {archivo_salida_excel}")
         
     except Exception as e:
-        logging.error(f"Error crítico en la limpieza: {e}")
-        print(f"Ocurrió un error. Revisa el archivo de logs.")
+        logging.error(f"Error critico en la limpieza: {e}")
+        print(f"Ocurrio un error. Revisa el archivo de logs:")
 
 if __name__ == "__main__":
     iniciar_limpieza()
