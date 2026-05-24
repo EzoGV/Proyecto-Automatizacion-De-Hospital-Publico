@@ -64,6 +64,16 @@ def get_connection():
     logging.info(f"Conexión exitosa a Oracle Cloud (OCI) como {DB_USER}")
     return connection
 
+def registrar_audit_log(connection, etapa, kpi_nombre, valor_calculado, estado):
+    cursor = connection.cursor()
+    sql = """
+        INSERT INTO AUDIT_LOG (etapa_pipeline, kpi_nombre, valor_calculado, estado)
+        VALUES (:1, :2, :3, :4)
+    """
+    cursor.execute(sql, [etapa, kpi_nombre, str(valor_calculado), estado])
+    connection.commit()
+    cursor.close()
+
 # ── MOTOR DE CARGA TRANSACCIONAL ────────────────────────────────────────────
 def iniciar_carga():
     logging.info("=== INICIO DE ETAPA 4: CARGA DE DATOS A BASE DE DATOS ===")
@@ -198,6 +208,11 @@ def iniciar_carga():
         print(f"   📊 Registros procesados e insertados: {insertados_ok}/{total_registros}")
         if errores_bd > 0:
             print(f"   ⚠️ Hubo {errores_bd} errores de Integridad en BD. Revisa el log.")
+
+        tasa_carga = (insertados_ok / total_registros) * 100
+        registrar_audit_log(conn, 'CARGA', 'REGISTROS_INSERTADOS', insertados_ok, 'OK')
+        registrar_audit_log(conn, 'CARGA', 'ERRORES_BD', errores_bd, 'OK' if errores_bd == 0 else 'ALERTA')
+        registrar_audit_log(conn, 'CARGA', 'TASA_CARGA_EXITOSA', f"{tasa_carga:.2f}%", 'OK' if tasa_carga >= 95 else 'ALERTA')
 
         cursor.close()
         conn.close()
