@@ -78,26 +78,25 @@ TIPOS_ATENCION      = {'CONSULTA', 'HOSPITALIZACION', 'PROCEDIMIENTO', 'URGENCIA
 
 # ── CREAR TABLA CUARENTENA ────────────────────────────────────────────────────
 def crear_tabla_cuarentena(connection):
-    sql = """
-        CREATE TABLE CUARENTENA (
-            id_registro          VARCHAR2(36),
-            campo_fallido        VARCHAR2(50),
-            valor_encontrado     VARCHAR2(200),
-            motivo_rechazo       VARCHAR2(100),
-            timestamp_validacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """
+    cursor = connection.cursor()
+    # 1. Intentar crear la tabla si no existe
     try:
-        cursor = connection.cursor()
+        sql = """CREATE TABLE CUARENTENA (
+            id_registro VARCHAR2(36), campo_fallido VARCHAR2(50), 
+            valor_encontrado VARCHAR2(200), motivo_rechazo VARCHAR2(100), 
+            timestamp_validacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"""
         cursor.execute(sql)
-        connection.commit()
-        logging.info("Tabla CUARENTENA verificada/creada exitosamente en BD.")
-    except Exception as e:
-        if "ORA-00955" in str(e):
-            logging.info("Tabla CUARENTENA ya existe en BD, continuando.")
-        else:
-            logging.error(f"Error creando tabla CUARENTENA: {e}")
-            raise
+    except Exception:
+        pass # La tabla ya existe
+    
+    # 2. LIMPIEZA: Borrar registros anteriores para que cada ejecución sea limpia
+    cursor.execute("DELETE FROM CUARENTENA")
+    # Si también tienes errores_validacion, limpia ambas
+    cursor.execute("DELETE FROM errores_validacion")
+    
+    connection.commit()
+    cursor.close()
+    logging.info("Tabla CUARENTENA y errores_validacion limpiadas para nueva ejecución.")
 
 # ── FUNCIONES DE VALIDACIÓN ───────────────────────────────────────────────────
 def validar_formato_rut(rut):
