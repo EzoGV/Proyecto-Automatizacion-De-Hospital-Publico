@@ -9186,3 +9186,302 @@ Help: https://docs.oracle.com/error-help/db/ora-00001/
 2026-05-24 16:24:17 - INFO - Duracion total del pipeline: 8.25 segundos.
 2026-05-24 16:24:17 - INFO - --- FIN KPI: LATENCIA ---
 2026-05-24 16:24:17 - INFO - === FIN DEL PIPELINE COMPLETO ===
+2026-05-24 16:54:55 - INFO - === INICIO DE ETAPA 3: VALIDACION ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-24 16:54:55 - INFO - Dataset cargado desde Processed: 610 registros a validar.
+2026-05-24 16:54:55 - INFO - Conexion exitosa a Oracle Cloud (OCI) como ADMIN
+2026-05-24 16:54:55 - ERROR - Error critico en validacion: ORA-00942: table or view does not exist
+Help: https://docs.oracle.com/error-help/db/ora-00942/
+2026-05-24 16:56:53 - INFO - === INICIO DE ETAPA 3: VALIDACION ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-24 16:56:53 - INFO - Dataset cargado desde Processed: 610 registros a validar.
+2026-05-24 16:56:54 - INFO - Conexion exitosa a Oracle Cloud (OCI) como ADMIN
+2026-05-24 16:56:54 - INFO - Tabla CUARENTENA y errores_validacion limpiadas para nueva ejecucion.
+2026-05-24 16:56:54 - INFO - Iniciando escaneo de Reglas de Negocio registro por registro...
+2026-05-24 16:56:54 - WARNING - Fila 7 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 11 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 13 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 52 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 62 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 66 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 75 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 112 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 118 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 132 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 156 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 197 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 202 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 208 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 219 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 229 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 234 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 237 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 242 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 244 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 247 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 255 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 260 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 268 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 270 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 278 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 292 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 295 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 299 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 300 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 314 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 315 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 316 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 319 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 321 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 327 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 338 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 347 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 351 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 367 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 369 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 370 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 378 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 393 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 411 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 424 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 427 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 433 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 455 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 471 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 477 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 479 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 490 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 506 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 513 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 517 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 518 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 520 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 530 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 550 enviada a cuarentena. Motivo(s): FECHA_ATENCION_FUTURA
+2026-05-24 16:56:54 - WARNING - Fila 564 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 566 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 574 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 597 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 601 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - WARNING - Fila 603 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 16:56:54 - INFO - Separando registros Válidos e Inválidos...
+2026-05-24 16:56:54 - INFO - --- INICIO KPI: COMPLETITUD POR COLUMNA ---
+2026-05-24 16:56:54 - INFO - Completitud OK en [rut_paciente]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [nombre_completo]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [fecha_nacimiento]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [sexo]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [prevision]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [id_atencion]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [fecha_atencion]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [tipo_atencion]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [codigo_cie10]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [codigo_minsal]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [dosis_prescrita]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [alergia_principio]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [id_examen]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [codigo_examen]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [resultado_valor]: 100.00%
+2026-05-24 16:56:54 - INFO - Completitud OK en [unidad_medida]: 100.00%
+2026-05-24 16:56:54 - INFO - --- INICIO KPI: TASA DE ERROR ---
+2026-05-24 16:56:54 - INFO - Registros validos procesados: 544 (89.18%)
+2026-05-24 16:56:54 - INFO - Registros con error (Cuarentena): 66 (10.82%)
+2026-05-24 16:56:54 - INFO - --- INICIO KPI: AUDITORIA DE ERRORES ---
+2026-05-24 16:56:54 - INFO - Anomalia detectada - RUT_DIGITO_INVALIDO: 65 incidentes
+2026-05-24 16:56:54 - INFO - Anomalia detectada - CODIGO_CIE10_NO_EXISTE: 5 incidentes
+2026-05-24 16:56:54 - INFO - Anomalia detectada - CODIGO_MINSAL_FORMATO_INVALIDO: 5 incidentes
+2026-05-24 16:56:54 - INFO - Anomalia detectada - FECHA_ATENCION_FUTURA: 1 incidentes
+2026-05-24 16:56:54 - INFO - Transaccion de CUARENTENA finalizada en BD Oracle.
+2026-05-24 17:01:17 - INFO - === INICIO DE ETAPA 3: VALIDACION ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-24 17:01:17 - INFO - Dataset cargado desde Processed: 610 registros a validar.
+2026-05-24 17:01:17 - INFO - Conexion exitosa a Oracle Cloud (OCI) como ADMIN
+2026-05-24 17:01:17 - INFO - Tabla CUARENTENA y errores_validacion limpiadas para nueva ejecucion.
+2026-05-24 17:01:17 - INFO - Iniciando escaneo de Reglas de Negocio registro por registro...
+2026-05-24 17:01:17 - WARNING - Fila 7 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 11 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 13 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 52 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 62 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 66 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 75 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 112 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 118 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 132 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 156 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 197 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 202 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 208 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 219 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 229 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 234 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 237 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 242 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 244 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 247 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 255 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 260 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 268 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 270 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 278 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 292 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 295 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 299 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 300 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 314 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 315 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 316 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 319 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 321 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 327 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 338 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 347 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 351 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 367 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 369 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 370 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 378 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 393 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 411 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 424 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 427 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 433 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 455 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 471 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 477 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 479 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 490 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 506 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 513 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 517 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 518 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 520 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 530 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 550 enviada a cuarentena. Motivo(s): FECHA_ATENCION_FUTURA
+2026-05-24 17:01:17 - WARNING - Fila 564 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 566 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 574 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 597 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 601 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - WARNING - Fila 603 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:01:17 - INFO - Separando registros Válidos e Inválidos...
+2026-05-24 17:01:17 - INFO - --- INICIO KPI: COMPLETITUD POR COLUMNA ---
+2026-05-24 17:01:17 - INFO - Completitud OK en [rut_paciente]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [nombre_completo]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [fecha_nacimiento]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [sexo]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [prevision]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [id_atencion]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [fecha_atencion]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [tipo_atencion]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [codigo_cie10]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [codigo_minsal]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [dosis_prescrita]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [alergia_principio]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [id_examen]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [codigo_examen]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [resultado_valor]: 100.00%
+2026-05-24 17:01:17 - INFO - Completitud OK en [unidad_medida]: 100.00%
+2026-05-24 17:01:17 - INFO - --- INICIO KPI: TASA DE ERROR ---
+2026-05-24 17:01:17 - INFO - Registros validos procesados: 544 (89.18%)
+2026-05-24 17:01:17 - INFO - Registros con error (Cuarentena): 66 (10.82%)
+2026-05-24 17:01:17 - INFO - --- INICIO KPI: AUDITORIA DE ERRORES ---
+2026-05-24 17:01:17 - INFO - Anomalia detectada - RUT_DIGITO_INVALIDO: 65 incidentes
+2026-05-24 17:01:17 - INFO - Anomalia detectada - CODIGO_CIE10_NO_EXISTE: 5 incidentes
+2026-05-24 17:01:17 - INFO - Anomalia detectada - CODIGO_MINSAL_FORMATO_INVALIDO: 5 incidentes
+2026-05-24 17:01:17 - INFO - Anomalia detectada - FECHA_ATENCION_FUTURA: 1 incidentes
+2026-05-24 17:01:17 - INFO - Transaccion de CUARENTENA finalizada en BD Oracle.
+2026-05-24 17:08:25 - INFO - === INICIO DE ETAPA 3: VALIDACION ESTRUCTURAL Y SEMÁNTICA ===
+2026-05-24 17:08:25 - INFO - Dataset cargado desde Processed: 610 registros a validar.
+2026-05-24 17:08:25 - INFO - Conexion exitosa a Oracle Cloud (OCI) como ADMIN
+2026-05-24 17:08:25 - INFO - Tabla CUARENTENA y errores_validacion limpiadas para nueva ejecucion.
+2026-05-24 17:08:25 - INFO - Iniciando escaneo de Reglas de Negocio registro por registro...
+2026-05-24 17:08:25 - WARNING - Fila 7 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 11 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 13 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 52 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 62 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 66 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 75 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 112 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 118 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 132 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 156 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 197 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 202 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 208 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 219 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 229 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 234 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 237 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 242 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 244 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:25 - WARNING - Fila 247 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 255 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 260 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 268 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 270 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 278 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 292 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 295 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 299 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 300 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 314 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 315 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 316 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 319 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 321 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 327 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 338 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 347 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 351 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 367 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 369 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 370 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 378 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 393 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 411 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 424 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 427 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 433 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 455 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO | CODIGO_CIE10_NO_EXISTE | CODIGO_MINSAL_FORMATO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 471 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 477 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 479 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 490 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 506 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 513 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 517 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 518 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 520 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 530 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 550 enviada a cuarentena. Motivo(s): FECHA_ATENCION_FUTURA
+2026-05-24 17:08:26 - WARNING - Fila 564 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 566 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 574 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 597 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 601 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - WARNING - Fila 603 enviada a cuarentena. Motivo(s): RUT_DIGITO_INVALIDO
+2026-05-24 17:08:26 - INFO - Separando registros Válidos e Inválidos...
+2026-05-24 17:08:26 - INFO - --- INICIO KPI: COMPLETITUD POR COLUMNA ---
+2026-05-24 17:08:26 - INFO - Completitud OK en [rut_paciente]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [nombre_completo]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [fecha_nacimiento]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [sexo]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [prevision]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [id_atencion]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [fecha_atencion]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [tipo_atencion]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [codigo_cie10]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [codigo_minsal]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [dosis_prescrita]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [alergia_principio]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [id_examen]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [codigo_examen]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [resultado_valor]: 100.00%
+2026-05-24 17:08:26 - INFO - Completitud OK en [unidad_medida]: 100.00%
+2026-05-24 17:08:26 - INFO - --- INICIO KPI: TASA DE ERROR ---
+2026-05-24 17:08:26 - INFO - Registros validos procesados: 544 (89.18%)
+2026-05-24 17:08:26 - INFO - Registros con error (Cuarentena): 66 (10.82%)
+2026-05-24 17:08:26 - INFO - --- INICIO KPI: AUDITORIA DE ERRORES ---
+2026-05-24 17:08:26 - INFO - Anomalia detectada - RUT_DIGITO_INVALIDO: 65 incidentes
+2026-05-24 17:08:26 - INFO - Anomalia detectada - CODIGO_CIE10_NO_EXISTE: 5 incidentes
+2026-05-24 17:08:26 - INFO - Anomalia detectada - CODIGO_MINSAL_FORMATO_INVALIDO: 5 incidentes
+2026-05-24 17:08:26 - INFO - Anomalia detectada - FECHA_ATENCION_FUTURA: 1 incidentes
+2026-05-24 17:08:26 - INFO - Transaccion de CUARENTENA finalizada en BD Oracle.

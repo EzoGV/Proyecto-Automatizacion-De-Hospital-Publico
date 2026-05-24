@@ -91,8 +91,7 @@ def crear_tabla_cuarentena(connection):
     
     # 2. LIMPIEZA: Borrar registros anteriores para que cada ejecucion sea limpia
     cursor.execute("DELETE FROM CUARENTENA")
-    # Si también tienes errores_validacion, limpia ambas
-    cursor.execute("DELETE FROM errores_validacion")
+
     
     connection.commit()
     cursor.close()
