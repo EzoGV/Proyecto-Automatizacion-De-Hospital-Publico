@@ -146,11 +146,11 @@ try:
             examenes.iloc[0]["TOTAL"]
         )
 
-    with col4:
-        st.metric(
-            "Errores ETL",
-            errores.iloc[0]["TOTAL"]
-        )
+    #with col4:
+    #    st.metric(
+    #        "Errores ETL",
+    #        errores.iloc[0]["TOTAL"]
+    #    )
 
     st.divider()
 

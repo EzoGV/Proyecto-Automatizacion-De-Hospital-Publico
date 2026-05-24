@@ -115,10 +115,10 @@ try:
         conn
     )
 
-    total_errores = pd.read_sql(
-        "SELECT COUNT(*) TOTAL FROM errores_validacion",
-        conn
-    )
+    #total_errores = pd.read_sql(
+    #    "SELECT COUNT(*) TOTAL FROM errores_validacion",
+    #    conn
+    #)
 
     total_cuarentena = pd.read_sql(
         "SELECT COUNT(*) TOTAL FROM CUARENTENA",
@@ -151,17 +151,17 @@ try:
         </div>
         """, unsafe_allow_html=True)
 
-    with col3:
-        st.markdown(f"""
-        <div class="kpi-card">
-            <div class="kpi-title">Errores Validación</div>
-            <div class="kpi-value">
-                {total_errores.iloc[0]["TOTAL"]}
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+   # with col3:
+    #    st.markdown(f"""
+    #    <div class="kpi-card">
+    #        <div class="kpi-title">Errores Validación</div>
+    #        <div class="kpi-value">
+    #            {total_errores.iloc[0]["TOTAL"]}
+    #        </div>
+    #    </div>
+    #    """, unsafe_allow_html=True)
 
-    with col4:
+    with col3:
         st.markdown(f"""
         <div class="kpi-card">
             <div class="kpi-title">Registros Cuarentena</div>
@@ -177,21 +177,21 @@ try:
     # ERRORES VALIDACIÓN
     # =====================================================
 
-    st.markdown("## ⚠️ Errores de Validación")
+    #st.markdown("## ⚠️ Errores de Validación")
 
-    errores = pd.read_sql("""
-        SELECT *
-        FROM errores_validacion
-        ORDER BY fila_id DESC
-    """, conn)
+    #errores = pd.read_sql("""
+    #    SELECT *
+    #    FROM errores_validacion
+    #    ORDER BY fila_id DESC
+    #""", conn)
 
-    st.dataframe(
-        errores,
-        use_container_width=True,
-        height=300
-    )
+    #st.dataframe(
+    #    errores,
+    #    use_container_width=True,
+    #    height=300
+    #)
 
-    st.divider()
+    #st.divider()
 
     # =====================================================
     # CUARENTENA
