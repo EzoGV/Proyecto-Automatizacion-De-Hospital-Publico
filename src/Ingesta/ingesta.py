@@ -33,11 +33,19 @@ def iniciar_ingesta():
         logging.info(f"Carpeta creada: {ruta_logs}")
 
     # Lista de archivos a procesar
+    # Escanear dinámicamente la carpeta origen buscando CSVs y Excels
     archivos_hospitales = [
-        'datos_hospital_san_jose.csv',
-        'datos_hospital_regional_sur.xlsx'
+        f for f in os.listdir(ruta_origen) 
+        if f.endswith(('.csv', '.xlsx', '.xls'))
     ]
 
+    if not archivos_hospitales:
+        logging.warning("No se encontraron archivos CSV o Excel en la carpeta de origen.")
+        print("⚠️ No hay archivos en origen para ingestar.")
+        return
+        
+    logging.info(f"Se encontraron {len(archivos_hospitales)} archivos para ingestar.")
+    
     total_registros_dia = 0
 
     for nombre_archivo in archivos_hospitales:

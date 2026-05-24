@@ -92,39 +92,73 @@ def iniciar_limpieza():
     # Aseguramos que exista la carpeta processed
     os.makedirs(ruta_processed, exist_ok=True)
     
-    archivo_csv = os.path.join(ruta_raw, 'datos_hospital_san_jose.csv')
-    archivo_excel = os.path.join(ruta_raw, 'datos_hospital_regional_sur.xlsx')
-    
     try:
-        # 1. LECTURA Y CONSOLIDACIÓN
-        df_csv = pd.read_csv(archivo_csv)
-        df_excel = pd.read_excel(archivo_excel)
+        # ==========================================
+        # 1. LECTURA DINÁMICA Y CONSOLIDACIÓN
+        # ==========================================
+        archivos_raw = [f for f in os.listdir(ruta_raw) if f.endswith(('.csv', '.xlsx', '.xls'))]
         
-        df_consolidado = pd.concat([df_csv, df_excel], ignore_index=True)
+        if not archivos_raw:
+            logging.warning("No hay archivos en data/raw para limpiar.")
+            print("⚠️ No hay archivos en data/raw para limpiar.")
+            return
+            
+        lista_dfs = []
+        
+        for archivo in archivos_raw:
+            ruta_archivo = os.path.join(ruta_raw, archivo)
+            try:
+                if archivo.endswith('.csv'):
+                    df_temp = pd.read_csv(ruta_archivo)
+                else:
+                    df_temp = pd.read_excel(ruta_archivo)
+                
+                lista_dfs.append(df_temp)
+                logging.info(f"Archivo cargado exitosamente: {archivo} con {len(df_temp)} filas.")
+            except Exception as e:
+                logging.error(f"Error al leer el archivo {archivo}: {e}")
+                
+        if not lista_dfs:
+            logging.error("No se pudo cargar ningún dataframe válido.")
+            return
+            
+        df_consolidado = pd.concat(lista_dfs, ignore_index=True)
         total_inicial = len(df_consolidado)
         logging.info(f"Lectura exitosa. Registros consolidados: {total_inicial}")
         
+        # ==========================================
         # 2. ELIMINAR DUPLICADOS EXACTOS
+        # ==========================================
         df_consolidado.drop_duplicates(inplace=True)
         total_sin_duplicados = len(df_consolidado)
         duplicados_eliminados = total_inicial - total_sin_duplicados
         logging.info(f"Limpieza: {duplicados_eliminados} filas duplicadas eliminadas.")
         
+        # ==========================================
         # 3. TRATAMIENTO DE NULOS Y NORMALIZACIÓN DE NOMBRES
+        # ==========================================
         df_consolidado['nombre_completo'] = df_consolidado['nombre_completo'].fillna('DESCONOCIDO')
         df_consolidado['nombre_completo'] = df_consolidado['nombre_completo'].str.strip().str.title()
         
+        # ==========================================
         # 4. NORMALIZACIÓN DE RUT
+        # ==========================================
         df_consolidado['rut_paciente'] = df_consolidado['rut_paciente'].apply(limpiar_rut)
         
+        # ==========================================
         # 5. ESTANDARIZACIÓN DE FECHAS
+        # ==========================================
         df_consolidado['fecha_nacimiento'] = pd.to_datetime(df_consolidado['fecha_nacimiento'], errors='coerce').dt.strftime('%Y-%m-%d')
         df_consolidado['fecha_atencion'] = pd.to_datetime(df_consolidado['fecha_atencion'], errors='coerce').dt.strftime('%Y-%m-%d %H:%M:%S')
         
+        # ==========================================
         # 6. TRATAMIENTO DE NULOS EN ALERGIAS
+        # ==========================================
         df_consolidado['alergia_principio'] = df_consolidado['alergia_principio'].fillna('Ninguna')
         
+        # ==========================================
         # 7. ESTANDARIZAR VARIABLES CATEGÓRICAS
+        # ==========================================
         df_consolidado['prevision'] = df_consolidado['prevision'].str.strip().str.upper()
         df_consolidado['tipo_atencion'] = df_consolidado['tipo_atencion'].str.strip().str.upper()
 
