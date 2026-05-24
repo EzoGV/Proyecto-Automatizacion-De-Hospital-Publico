@@ -30,7 +30,6 @@ else:
 
 # ── CONEXIÓN ORACLE SEGURA ──────────────────────────────────────────────────
 def get_connection():
-    # Ruta a la wallet (relativa a la raíz del proyecto)
     raiz = Path(__file__).resolve().parent.parent.parent
     wallet_dir = str(raiz / "wallet")
 
@@ -119,7 +118,7 @@ def iniciar_limpieza():
                 logging.error(f"Error al leer el archivo {archivo}: {e}")
                 
         if not lista_dfs:
-            logging.error("No se pudo cargar ningún dataframe válido.")
+            logging.error("No se pudo cargar ningún dataframe valido.")
             return
             
         df_consolidado = pd.concat(lista_dfs, ignore_index=True)
@@ -197,7 +196,7 @@ def iniciar_limpieza():
             conn.close()
             logging.info("KPIs de limpieza registrados en AUDIT_LOG correctamente.")
         except Exception as e:
-            print(f"❌ ERROR REAL en AUDIT_LOG: {e}")  # <-- esto te dirá exactamente qué falla
+            print(f"❌ ERROR REAL en AUDIT_LOG: {e}") 
             logging.warning(f"No se pudo registrar en AUDIT_LOG: {e}")
         
     except Exception as e:

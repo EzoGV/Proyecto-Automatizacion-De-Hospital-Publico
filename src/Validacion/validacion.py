@@ -199,7 +199,7 @@ def calcular_kpi_auditoria(errores_detalle):
 
 # ── MOTOR PRINCIPAL DE VALIDACIÓN ──────────────────────────────────────────────
 def iniciar_validacion():
-    logging.info("=== INICIO DE ETAPA 3: VALIDACION ESTRUCTURAL Y SEMÁNTICA ===")
+    logging.info("=== INICIO DE ETAPA 3: VALIDACION ESTRUCTURAL Y SEMANTICA ===")
 
     ruta_dataset = "./data/processed/dataset_hospitales_limpio.csv"
     ruta_validos = "./data/validated"

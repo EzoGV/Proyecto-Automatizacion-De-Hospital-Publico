@@ -22,6 +22,7 @@ logging.basicConfig(
 # Primero aseguramos que la carpeta RegistroLogs exista
 def iniciar_ingesta():
     logging.info("=== INICIO DE ETAPA 1: INGESTA DE DATOS ===")
+    print("=== INICIO DE ETAPA 1: INGESTA DE DATOS ===")
     
     # Definición de rutas (usando el punto para que sea ruta relativa)
     ruta_origen = "data/origen" 
@@ -104,7 +105,7 @@ def iniciar_ingesta():
         f"{total_registros_dia} registros totales capturados ==="
     )
     print(
-        f"\n🚀 Ingesta terminada. "
+        f"\nIngesta terminada. "
         f"Revisa la carpeta 'RegistroLogs' para ver los detalles."
     )
 
