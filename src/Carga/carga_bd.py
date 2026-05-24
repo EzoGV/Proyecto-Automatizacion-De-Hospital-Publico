@@ -31,7 +31,6 @@ else:
 
 # ── logging MEJORADO (DataOps) ──────────────────────────────────────────────
 
-
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
 console_formatter = logging.Formatter('%(asctime)s - %(levelname)s - [CARGA] - %(message)s', datefmt='%H:%M:%S')
@@ -61,7 +60,7 @@ def get_connection():
         wallet_password=DB_PASSWORD
     )
 
-    logging.info(f"Conexión exitosa a Oracle Cloud (OCI) como {DB_USER}")
+    logging.info(f"Conexion exitosa a Oracle Cloud (OCI) como {DB_USER}")
     return connection
 
 def registrar_audit_log(connection, etapa, kpi_nombre, valor_calculado, estado):
@@ -87,7 +86,7 @@ def iniciar_carga():
     try:
         df = pd.read_csv(ruta_validos)
         total_registros = len(df)
-        logging.info(f"Archivo detectado. Preparando inserción de {total_registros} atenciones.")
+        logging.info(f"Archivo detectado. Preparando insercion de {total_registros} atenciones.")
 
         conn = get_connection()
         cursor = conn.cursor()
@@ -218,8 +217,8 @@ def iniciar_carga():
         conn.close()
 
     except Exception as e:
-        logging.error(f"Fallo general en la capa de ejecución de BD: {e}")
-        print(f"❌ El proceso de carga falló de forma crítica. Error: {e}")
+        logging.error(f"Fallo general en la capa de ejecucion de BD: {e}")
+        print(f"❌ El proceso de carga fallo de forma crítica. Error: {e}")
 
 if __name__ == "__main__":
     iniciar_carga()

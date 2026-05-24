@@ -22,7 +22,7 @@ logging.basicConfig(
 
 def ejecutar_pipeline():
     print("=" * 50)
-    print("   PIPELINE HOSPITAL PÚBLICO — INICIO")
+    print("   PIPELINE HOSPITAL PUBLICO — INICIO")
     print("=" * 50)
 
     inicio_total = datetime.now()
@@ -31,7 +31,7 @@ def ejecutar_pipeline():
     etapas = [
         ("Ingesta",     iniciar_ingesta),
         ("Limpieza",    iniciar_limpieza),
-        ("Validación",  iniciar_validacion),
+        ("Validacion",  iniciar_validacion),
         ("Carga",       iniciar_carga),
     ]
 
@@ -45,16 +45,16 @@ def ejecutar_pipeline():
             print(f"✅ {nombre} completada en {duracion_etapa:.2f} segundos.")
         except Exception as e:
             duracion_etapa = (datetime.now() - inicio_etapa).total_seconds()
-            logging.error(f"Etapa '{nombre}' falló después de {duracion_etapa:.2f} segundos. Error: {e}")
+            logging.error(f"Etapa '{nombre}' fallo después de {duracion_etapa:.2f} segundos. Error: {e}")
             print(f"\n❌ Error en etapa '{nombre}': {e}")
-            print(f"   El pipeline se detuvo. Revisa el log para más detalles.")
+            print(f"   El pipeline se detuvo. Revisa el log para mas detalles.")
             print(f"   Archivo: {archivo_log}")
             return
 
     # KPI: LATENCIA TOTAL
     duracion_total = (datetime.now() - inicio_total).total_seconds()
     logging.info("--- KPI: LATENCIA ---")
-    logging.info(f"Duración total del pipeline: {duracion_total:.2f} segundos.")
+    logging.info(f"Duracion total del pipeline: {duracion_total:.2f} segundos.")
     logging.info("--- FIN KPI: LATENCIA ---")
 
     print("\n" + "=" * 50)

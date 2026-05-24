@@ -51,7 +51,7 @@ def get_connection():
         wallet_password=DB_PASSWORD
     )
 
-    logging.info(f"Conexión exitosa a Oracle Cloud (OCI) como {DB_USER}")
+    logging.info(f"Conexion exitosa a Oracle Cloud (OCI) como {DB_USER}")
     return connection
 
 def registrar_audit_log(connection, etapa, kpi_nombre, valor_calculado, estado):
@@ -187,7 +187,7 @@ def iniciar_limpieza():
         # ==========================================
         try:
             conn = get_connection()
-            print(f"✅ Conexión a Oracle exitosa desde Limpieza")
+            print(f"✅ Conexion a Oracle exitosa desde Limpieza")
             registrar_audit_log(conn, 'LIMPIEZA', 'REGISTROS_ENTRADA', total_inicial, 'OK')
             registrar_audit_log(conn, 'LIMPIEZA', 'DUPLICADOS_ELIMINADOS', duplicados_eliminados, 'OK' if duplicados_eliminados == 0 else 'ALERTA')
             registrar_audit_log(conn, 'LIMPIEZA', 'REGISTROS_LIMPIOS', total_sin_duplicados, 'OK')

@@ -58,7 +58,7 @@ def get_connection():
         wallet_password=DB_PASSWORD
     )
 
-    logging.info(f"Conexión exitosa a Oracle Cloud (OCI) como {DB_USER}")
+    logging.info(f"Conexion exitosa a Oracle Cloud (OCI) como {DB_USER}")
     return connection
 
 def registrar_audit_log(connection, etapa, kpi_nombre, valor_calculado, estado):
@@ -89,14 +89,14 @@ def crear_tabla_cuarentena(connection):
     except Exception:
         pass # La tabla ya existe
     
-    # 2. LIMPIEZA: Borrar registros anteriores para que cada ejecución sea limpia
+    # 2. LIMPIEZA: Borrar registros anteriores para que cada ejecucion sea limpia
     cursor.execute("DELETE FROM CUARENTENA")
     # Si también tienes errores_validacion, limpia ambas
     cursor.execute("DELETE FROM errores_validacion")
     
     connection.commit()
     cursor.close()
-    logging.info("Tabla CUARENTENA y errores_validacion limpiadas para nueva ejecución.")
+    logging.info("Tabla CUARENTENA y errores_validacion limpiadas para nueva ejecucion.")
 
 # ── FUNCIONES DE VALIDACIÓN ───────────────────────────────────────────────────
 def validar_formato_rut(rut):
@@ -187,20 +187,20 @@ def calcular_kpi_completitud(df):
 def calcular_kpi_errores(total, errores_filas):
     logging.info("--- INICIO KPI: TASA DE ERROR ---")
     tasa_error = (errores_filas / total) * 100
-    logging.info(f"Registros válidos procesados: {total - errores_filas} ({100 - tasa_error:.2f}%)")
+    logging.info(f"Registros validos procesados: {total - errores_filas} ({100 - tasa_error:.2f}%)")
     logging.info(f"Registros con error (Cuarentena): {errores_filas} ({tasa_error:.2f}%)")
 
 def calcular_kpi_auditoria(errores_detalle):
-    logging.info("--- INICIO KPI: AUDITORÍA DE ERRORES ---")
+    logging.info("--- INICIO KPI: AUDITORIA DE ERRORES ---")
     conteo = {}
     for _, _, _, motivo_rechazo in errores_detalle:
         conteo[motivo_rechazo] = conteo.get(motivo_rechazo, 0) + 1
     for motivo_rechazo, cantidad in sorted(conteo.items(), key=lambda x: x[1], reverse=True):
-        logging.info(f"Anomalía detectada - {motivo_rechazo}: {cantidad} incidentes")
+        logging.info(f"Anomalia detectada - {motivo_rechazo}: {cantidad} incidentes")
 
 # ── MOTOR PRINCIPAL DE VALIDACIÓN ──────────────────────────────────────────────
 def iniciar_validacion():
-    logging.info("=== INICIO DE ETAPA 3: VALIDACIÓN ESTRUCTURAL Y SEMÁNTICA ===")
+    logging.info("=== INICIO DE ETAPA 3: VALIDACION ESTRUCTURAL Y SEMÁNTICA ===")
 
     ruta_dataset = "./data/processed/dataset_hospitales_limpio.csv"
     ruta_validos = "./data/validated"
@@ -342,19 +342,19 @@ def iniciar_validacion():
         registrar_audit_log(connection, 'VALIDACION', 'TOTAL_PROCESADOS', total, 'OK')
         
         connection.commit()
-        logging.info("Transacción de CUARENTENA finalizada en BD Oracle.")
+        logging.info("Transaccion de CUARENTENA finalizada en BD Oracle.")
 
         cursor.close()
         connection.close()
 
-        print(f"\n✅ Etapa 3 Completada: {len(df_validos)} registros válidos.")
-        print(f"📁 Válidos generados en: {ruta_validos}")
+        print(f"\n✅ Etapa 3 Completada: {len(df_validos)} registros validos.")
+        print(f"Validos generados en: {ruta_validos}")
         if not df_invalidos.empty:
             print(f"🔴 Rechazados (Cuarentena) en BD y en carpeta: {ruta_invalidos}")
 
     except Exception as e:
-        logging.error(f"Error crítico en validación: {e}")
-        print(f"❌ Ocurrió un error: {e}")
+        logging.error(f"Error critico en validacion: {e}")
+        print(f"❌ Ocurrio un error: {e}")
 
 if __name__ == "__main__":
     iniciar_validacion()
